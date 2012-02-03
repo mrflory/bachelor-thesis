@@ -1,0 +1,312 @@
+@charset "UTF-8";
+
+/**
+ * RESET
+ */
+
+body,div,h1,h2,h3,h4,h5,h6,p,blockquote,pre,code,ol,ul,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea {
+  margin:0;
+  padding:0;
+}
+
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+fieldset,img {
+  border:0;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/**
+ * STRUCTURE
+ */
+
+body {
+  font-family: "Helvetica", "Arial", "Liberation Sans", "FreeSans", sans-serif;
+  font-size: 12px;
+  background:#fff;
+  color:#111;
+  overflow-y:scroll; /* Force vertical scrollbars */
+}
+
+#wrapper {
+  width:960px;
+  position:relative;
+  margin:0 auto;
+}
+
+body > header {
+  margin:0 0 10px 0;
+  padding:5px 0 0 0;
+  border-bottom:5px solid #aaa;
+}
+body > header h1 {
+	width:950px;
+	margin:0 auto;
+  background:url('../images/logo_upb.png') no-repeat top right;
+  padding:10px 0 15px 0;
+}
+section,
+footer {
+  clear:both;
+}
+footer {
+  background: #666;
+  color:#ccc;
+  padding:10px 12px;
+  margin-left:5px;
+  margin-right:5px;
+}
+
+/**
+ * CONTENT
+ */
+
+p {
+  line-height: 1.5em;
+}
+h1,h2,h3,h4,h5,h6 { font-weight:bold; margin: 0 0 0.25em 0; }
+h1 {
+	font-size: 25px;
+}
+h2 {
+	font-size: 23px;
+}
+h3 {
+	font-size: 21px;
+}
+h4 {
+	font-size: 19px;
+}
+h5 {
+	font-size: 17px;
+}
+h6 {
+	font-size: 15px;
+}
+
+.width8,
+.width12,
+.width24 {
+  float:left;
+  margin-left:5px;
+  margin-right:5px;
+}
+.width24 {
+  width:950px;
+}
+.width12 {
+  width:470px;
+}
+.width8 {
+  width:310px;
+}
+
+.box {
+  background: #dddddd;
+  padding:0 12px 6px 12px;
+  margin-bottom:20px;
+  border-bottom:8px solid #333;
+  overflow:hidden;
+}
+.box header {
+  background: #333;
+  color:#fff;
+  padding:6px 12px;
+  margin:0 -12px 6px -12px;
+}
+.box header h2 {
+  font-size:12px;
+  text-transform: uppercase;
+  margin:0;
+}
+
+#instructions header {
+  margin-bottom:0;
+  cursor:pointer;
+}
+#instructions .visible {
+  background:#333 url("../images/switch_minus.gif") 98% 50% no-repeat;
+}
+#instructions .hidden {
+  background:#333 url("../images/switch_plus.gif") 98% 50% no-repeat;
+}
+#instructions p {
+  margin-top:6px;
+}
+
+.error {
+  background: #ddbbbb;
+  border-color:#331111;
+}
+.error header {
+  background: #331111;
+}
+.notice {
+  background: #ddddbb;
+  border-color:#333311;
+}
+.notice header {
+  background: #333311;
+}
+
+.ui-dialog-content > p {
+  margin:1em 0 1em 0;
+}
+.ui-dialog .ui-icon {
+  float:left;
+  margin:2px 10px 80px 0;
+}
+
+.ui-dialog p,
+.box p {
+  clear:both;
+}
+.label {
+  color:#555;
+  float:left;
+  width:120px;
+  margin-right:10px;
+}
+#auction p {
+  text-align: center;
+}
+#a_lastbidder {
+  text-align:center;
+  font-size:14px;
+}
+#curprice,
+#timeremain {
+  background:#ddd;
+  text-align:center;
+  padding:6px;
+  font-size:14px;
+  /*font-family:monospace;*/
+}
+#a_image {
+  text-align: center;
+}
+
+form {
+  overflow:hidden;
+}
+input {
+  padding:1px 2px;
+}
+
+#bidform,
+#buyform {
+  text-align: center;
+  margin:5px 0 5px 0;
+  clear:both;
+}
+form div.submitbutton {
+  height:30px;
+}
+form img.submitload {
+  margin-top:8px;
+}
+form div.submitbutton input[type=submit] {
+  padding:4px 18px;
+  font-weight:bold;
+  color:#111;
+  cursor:pointer;
+	border:1px solid #888;
+  background: #eeeeee; /* Old browsers */
+  background: -moz-linear-gradient(top, #eeeeee 0%, #bbbbbb 50%, #aaaaaa 51%, #bbbbbb 100%); /* FF3.6+ */
+  background: -webkit-linear-gradient(top, #eeeeee 0%, #bbbbbb 50%, #aaaaaa 51%, #bbbbbb 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #eeeeee 0%, #bbbbbb 50%, #aaaaaa 51%, #bbbbbb 100%); /* Opera11.10+ */
+  background: -ms-linear-gradient(top, #eeeeee 0%, #bbbbbb 50%, #aaaaaa 51%, #bbbbbb 100%); /* IE10+ */
+  background: linear-gradient(top, #eeeeee 0%, #bbbbbb 50%, #aaaaaa 51%, #bbbbbb 100%); /* W3C */
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+form div.submitbutton input[type=submit]:hover {
+  background: #cccccc; /* Old browsers */
+  background: -moz-linear-gradient(top, #cccccc 0%, #bbbbbb 50%, #999999 51%, #bbbbbb 100%); /* FF3.6+ */
+  background: -webkit-linear-gradient(top, #cccccc 0%, #bbbbbb 50%, #999999 51%, #bbbbbb 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #cccccc 0%, #bbbbbb 50%, #999999 51%, #bbbbbb 100%); /* Opera11.10+ */
+  background: -ms-linear-gradient(top, #cccccc 0%, #bbbbbb 50%, #999999 51%, #bbbbbb 100%); /* IE10+ */
+  background: linear-gradient(top, #cccccc 0%, #bbbbbb 50%, #999999 51%, #bbbbbb 100%); /* W3C */
+}
+form div.submitbutton input[disabled] {
+  color:#999 !important;
+  background:#333 !important;
+  cursor:auto !important;
+}
+#botform p {
+  clear:both;
+	margin-bottom:0.5em;
+}
+#botform label {
+  float:left;
+  line-height:22px;
+  margin-right:10px;
+  text-align: right;
+  width: 80px;
+}
+#botform input {
+  width:120px;
+	border:1px solid #888;
+}
+#botform input[type=submit],
+#botform .submitload {
+  margin-left:90px;
+  width:auto;
+}
+
+.box table {
+  width:100%;
+	border:1px solid #bbb;
+}
+.box th,
+.box td {
+	padding:0.2em 1em;
+	text-align:left;
+}
+.box thead th {
+	border-bottom:2px solid #888;
+	background:#bbb;
+	padding:0.4em 1em 0.2em;
+}
+.box tbody td {
+	border-top:1px solid #bbb;
+	border-bottom:1px solid #bbb;
+	background:#eee;
+}
+.box tbody tr:nth-child(odd) td {
+	background:#fff;
+}
+#history tbody tr:first-child td {
+  font-weight:bold;
+  background:#ddddbb;
+}
+
+#statusbar {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 6px 12px;
+  background: #333311;
+  color: #fff;
+  opacity: .80;
+  z-index: 200;
+  overflow: hidden;
+  font-weight:bold;
+}
+.statuserror {
+  background: #331111 !important;
+}
+#statusbar .ui-icon {
+  float:left;
+  margin:1px 2px 1px 0;
+  background-image: url(black-tie/images/ui-icons_ffffff_256x240.png);
+}

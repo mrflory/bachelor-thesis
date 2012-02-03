@@ -1,0 +1,32 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Bid
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          bid
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title:            Bid Management
+        display:          [=id, auction, bidder, price, countdown, _type]
+        max_per_page:     20
+        sort:             [id, desc]
+        actions:          []
+      filter:
+        display:          [auction_id, bidder_id, bot_id]
+      form:
+        display:
+          NONE:           [auction_id, bidder_id, bot_id]
+          "Settings":     [price, countdown]
+      edit:
+        title:            Edit Bid "%%id%%"
+      new:
+        title:            New Bid

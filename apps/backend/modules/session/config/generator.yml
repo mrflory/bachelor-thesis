@@ -1,0 +1,32 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Session
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          session
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _new:             { label: "Create a new session" }
+      fields:
+        currency:         { help: "String with %01.2f which will be replaced by actual amount" }
+        comment:          { help: "Internal comment" }
+        message:          { help: "Message for the participants" }
+      list:
+        title:            Session Management
+        display:          [id, =name, currency, active]
+        max_per_page:     5
+        sort:             [id, desc]
+      filter:
+        display:          [name, currency, active]
+      form:    ~
+      edit:
+        title:            Edit Session "%%name%%"
+      new:
+        title:            New Session

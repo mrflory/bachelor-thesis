@@ -1,0 +1,50 @@
+Auction:
+    Testauction1:
+        name: 'Testauktion #1 (Verlauf, Kauf, Bots lru)'
+        Session: Testsession1
+        bot_behaviour: lru
+        countdown: 120
+        show_directbuy: true
+        direct_price: 60
+        description: Dies ist eine Produktbeschreibung.
+        valuation: 50
+        bid_fee: 1
+    Testauction2:
+        name: 'Testauktion #2 (Verlauf, Kauf, Bots all)'
+        Session: Testsession1
+        bot_behaviour: all
+        show_directbuy: true
+        direct_price: 30
+        description: Dies ist eine Produktbeschreibung.
+        valuation: 30
+        bid_priceraise: 4
+        bid_fee: 2
+    Testauction3:
+        name: 'Testauktion #3 (Verlauf, Bots lru, Bieten aus)'
+        Session: Testsession1
+        show_bidbutton: false
+        bot_behaviour: lru
+        description: Nur Bots möglich.
+        valuation: 30
+    Testauction4:
+        name: 'Testauktion #4 (Verlauf, Bots random, fixed-price)'
+        Session: Testsession2
+        bid_priceraise: 0
+        price: 45
+        bot_behaviour: random
+        valuation: 40
+        description: Fixed-price Auktion.
+    Testauction5:
+        name: 'Testauktion #5 (Verlauf, Kauf, Bots all, Bieten aus)'
+        Session: Testsession2
+        show_bidbutton: false
+        bot_behaviour: all
+        show_directbuy: true
+        direct_price: 55
+        valuation: 50
+    Testauction6:
+        name: 'Testauktion #6 (Verlauf aus, Bots aus, Kauf aus)'
+        Session: Testsession2
+        bot_behaviour: off
+        show_bidders: false
+        valuation: 20

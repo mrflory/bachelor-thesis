@@ -1,0 +1,1 @@
+<?php echo ($bid->relatedExists('Bot') ? 'Biet-Automat' : 'Manuell') ?>

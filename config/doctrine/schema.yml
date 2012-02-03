@@ -1,0 +1,165 @@
+# config/doctrine/schema.yml
+Session:
+    actAs: [Timestampable]
+    columns:
+        name:               { type: string(255), notnull: true }
+        # Währung in der Form "%01.2f Euro" für "2.50 Euro"
+        currency:           { type: string(255) }
+        # Session aktiv?
+        active:             { type: boolean, notnull: true, default: false }
+        # Interner Kommentar
+        comment:            { type: string(4000) }
+        # Nachricht an alle Nutzer
+        message:            { type: string(4000) }
+
+Participant:
+    actAs: [Timestampable]
+    columns:
+        session_id:         { type: integer, notnull: true }
+        # IP mit Zusatz zur Überprüfung, ob Participant bereits vergeben
+        ip:                 { type: string(32), unique: true }
+        # Name oder Nummer zur Identifikation
+        name:               { type: string(255), notnull: true }
+        # Initial verfügbares Geld / Credits
+        init_money:         { type: decimal(10), notnull: true }
+        # Noch verfügbares Geld / Credits
+        money:              { type: decimal(10) }
+        # Geldwerter Einnahmen, also Summe aller gewonnen oder gekauften Produktwerte
+        earned_money:       { type: decimal(10), notnull: true, default: 0 }
+    relations:
+        Session:            { local: session_id, foreign: id, foreignAlias: Participants }
+
+Auction:
+    actAs: [Timestampable]
+    columns:
+        session_id:         { type: integer, notnull: true }
+        # Name zur Identifikation
+        name:               { type: string(255), notnull: true }
+        # Startzeitpunkt
+        start_time:         { type: timestamp }
+      # Auktions-Einstellungen:
+        # Zeige Bieter Historie
+        show_bidders:       { type: boolean, notnull: true, default: true }
+        # Zeige Bietbutton für manuelles Bieten
+        show_bidbutton:     { type: boolean, notnull: true, default: true }
+        # Verhalten der Bots: alle bieten, randomisierte Auswahl, nur der bietet der zuletzt geboten hatte (least recently used)
+        bot_behaviour:      { type: enum, values: [off, random, lru, all], default: off }
+        # Zeitsteigerung pro Gebot
+        bid_countraise:     { type: integer(10), notnull: true, default: 20 }
+        # Zeit, ab der überhaupt eine Countdown-Erhöhung stattfinden soll, leer=immer erhöhen
+        bid_raise_start:    { type: integer(10), default: 20 }
+        # Zeit maximal auf diesen Wert erhöhen, leer=keine Grenze
+        bid_raise_limit:    { type: integer(10), default: 20 }
+        # Preissteigerung pro Gebot
+        bid_priceraise:     { type: decimal(10), notnull: true, default: 1 }
+        # Initialpreis
+        price:              { type: decimal(10), notnull: true, default: 0 }
+        # Initialcountdown
+        countdown:          { type: integer(10), notnull: true, default: 60 }
+      # Produkt-Einstellungen:
+        # Zeige Direktkauf Option
+        show_directbuy:     { type: boolean, notnull: true, default: false }
+        # Preis für Direktkauf
+        direct_price:       { type: decimal(10) }
+        # Produktbeschreibung
+        description:        { type: string(4000) }
+        # Produktbild
+        image:              { type: string(255) }
+      # Bieter-Einstellungen Standardwerte:
+        # Willingness to pay
+        valuation:          { type: decimal(10), notnull: true, default: 100 }
+        # Gebühr für ein Gebot
+        bid_fee:            { type: decimal(10), notnull: true, default: 0.1 }
+      # Intern verwendet, wenn Auktion gestartet:
+        # Aktueller Preis:
+        current_price:      { type: decimal(10) }
+        # Noch zu Verfügung stehende Zeit
+        time_remaining:     { type: integer(10) }
+        # Für die Auktion ausgegebenen Gebühren (ohne Direktkauf)
+        money_spent:        { type: decimal(10) }
+        # Zeitpunkt des zuletzt abgegebenen Gebots
+        last_bid:           { type: timestamp }
+        # Bieter des zuletzt abgegebenen Gebots
+        bidder_id:          { type: integer }
+        # Endzeitpunkt
+        end_time:           { type: timestamp }
+    relations:
+        Session:            { local: session_id, foreign: id, foreignAlias: Auctions }
+        LastBidder:         { class: Bidder, local: bidder_id, foreign: id, foreignAlias: Auctionleader, foreignType: one }
+
+Bidder:
+    actAs: [Timestampable]
+    columns:
+        auction_id:     { type: integer, notnull: true }
+        participant_id: { type: integer, notnull: true }
+      # Bieter-Einstellungen (überschreibt Auktionswerte):
+        # Willingness to pay
+        valuation:      { type: decimal(10) }
+        # Gebühr für ein Gebot
+        bid_fee:        { type: decimal(10) }
+      # Intern verwendet, sobald Gebot gestartet
+        # Für die Auktion ausgegebenen Gebühren (ohne Direktkauf)
+        money_spent:    { type: decimal(10), notnull: true, default: 0 }
+        # Bot aktiv
+        bot_active:     { type: boolean, notnull: true, default: false }
+        # Gibt den Kaufpreis an, wenn Direktkauf getätigt
+        direct_buy:     { type: decimal(10) }
+        # Countdown zum Zeitpunkt des Direktkaufs
+        direct_count:   { type: integer(10) }
+        # Auktionspreis zum Zeitpunkt des Direktkaufs
+        direct_price:   { type: decimal(10) }
+    relations:
+        Auction:        { local: auction_id, foreign: id }
+        Participant:    { local: participant_id, foreign: id }
+    indexes:
+        auct_part:
+            fields: [auction_id, participant_id]
+
+Bot:
+    actAs: [Timestampable]
+    columns:
+        auction_id:     { type: integer, notnull: true }
+        bidder_id:      { type: integer }
+      # Bot-Einstellungen:
+        # Bot aktiv
+        active:         { type: boolean, notnull: true, default: false }
+        # Anzahl Gebote, die vom Bot gemacht werden dürfen
+        init_numbids:   { type: integer(10), notnull: true }
+        # Startpreis des Bots
+        start:          { type: decimal(10), notnull: true }
+        # Endpreis des Bots
+        end:            { type: decimal(10), notnull: true }
+      # Intern verwendet, sobald Bot aktiviert
+        # Auktionspreis zum Zeitpunkt des Aktivierens
+        price:          { type: decimal(10), notnull: true }
+        # Countdown zum Zeitpunkt des Aktivierens
+        countdown:      { type: integer(10), notnull: true }
+        # Noch verfügbare Gebote
+        numbids:        { type: integer(10) }
+        # Zeitpunkt des letzten Gebots (für lru-strategie)
+        last_use:       { type: timestamp }
+    relations:
+        Auction:        { local: auction_id, foreign: id, foreignAlias: Bots }
+        Bidder:         { local: bidder_id, foreign: id, foreignAlias: Bots }
+    indexes:
+        auct_bidd:
+            fields: [auction_id, bidder_id]
+
+Bid:
+    actAs: [Timestampable]
+    columns:
+        auction_id:     { type: integer, notnull: true }
+        bidder_id:      { type: integer }
+        # Id des Bots, wenn Gebot von Bot gemacht wurde, sonst NULL
+        bot_id:         { type: integer }
+        # Auktionspreis zum Zeitpunkt des Gebots
+        price:          { type: decimal(10), notnull: true }
+        # Countdown zum Zeitpunkt des Gebots
+        countdown:      { type: integer(10), notnull: true }
+    relations:
+        Auction:        { local: auction_id, foreign: id, foreignAlias: Bids }
+        Bidder:         { local: bidder_id, foreign: id, foreignAlias: Bids }
+        Bot:            { local: bot_id, foreign: id, foreignAlias: Bids }
+    indexes:
+        auct_bidd:
+            fields: [auction_id, bidder_id]

@@ -1,3 +1,16 @@
-# Bachelor Thesis
+# Bachelor Thesis: Pay-per-bid Auction Simulator
 
-to be uploaded...
+I developed this software as my bachelor thesis. The theoretical part  - only in German - is available here: http://www.mendeley.com/profiles/florian-stallmann/ .
+This application simulates pay-per-bid auctions, which are configurable by a lot of parameters, for scientific experiments.
+
+## Installation
+
+You need a webserver like Apache, PHP 5 and a database like MySQL. Furthermore you need to download Symfony 1.4, which is not included, and place it in the `lib/vendor/` folder. You can download Symfony here: http://www.symfony-project.org/installation . I used version 1.4.11 for my thesis but any 1.4 version should work.
+
+To configure the database, please edit the `config/databases.yml` file and run the symfony task `$ php symfony doctrine:build --all --no-confirmation`. There is also some example data included via fixtures: `$ php symfony doctrine:data-load`.
+
+For more detailed intructions refer to the Symfony documentation: http://www.symfony-project.org/jobeet/1_4/Doctrine/en/01 .
+
+## Using the software
+
+A brief introduction for using the software - only a German - is available in the appendix of my thesis (see link above). The frontend is currently also only available in German.

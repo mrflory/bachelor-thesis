@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+/**
+ * RESET
+ */
+html {
+  background:none;
+}
+body {
+  line-height:normal;
+}
+
+/**
+ * NAVIGATION
+ */
+nav {
+  margin-bottom: 20px;
+  /*background-color: #666;
+  overflow:hidden;*/
+}
+nav ul {
+  position: relative;
+  background-color: #666;
+  height:2.4em;
+}
+nav li {
+  float:left;
+  list-style-type: none;
+}
+nav li strong,
+nav li a {
+  color:#fff;
+	background:#666;
+	font-weight:bold;
+	text-decoration:none;
+	display:block;
+	float:left;
+	padding:0 1em;
+	height:2.4em;
+	line-height:2.5em;
+}
+nav li a:hover,
+nav li a:focus {
+	color:#000; background:#ccc;
+}
+nav li strong {
+  background:#333;
+  text-transform: uppercase;
+  font-weight:normal;
+}
+nav li.basic {
+}
+nav li.advanced {
+  border-left:5px solid #fff;
+}
+nav li.last {
+  float:right;
+  border-left:5px solid #fff;
+}
+
+/**
+ * CONTENT
+ */
+
+#sf_admin_container {
+  margin-left:5px;
+  margin-right:5px;
+}
+td, th
+{
+  padding: 6px 12px;
+}
+
+.login p {
+  clear:both;
+	margin-bottom:1em;
+}
+.login label {
+  float:left;
+  line-height:22px;
+  margin-right:10px;
+  text-align: right;
+  width: 100px;
+}
+.login input {
+  width:200px;
+}
+.login input[type=submit] {
+  margin-left:110px;
+  width:100px;
+}
+
+#sf_admin_bar {
+  margin-bottom:20px;
+  position:relative;
+}
+#togglefilter {
+  background-color:#666;
+  color:#fff;
+  width:28px;
+  height:10em;
+}
+#togglefilter:hover {
+	color:#000; background:#ccc; cursor:pointer;
+}
+#togglefilter p {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  letter-spacing:.3em;
+  padding-left:1.5em;
+  font-weight:bold;
+}
+.sf_admin_filter {
+  position:absolute;
+  max-width:500px;
+  min-width:100px;
+  padding:20px;
+  right:28px;
+  top:0;
+  /*background-color:rgba(102, 102, 102, 0.5);*/
+  background-color:#ccc;
+  display:none;
+}
+.sf_admin_list {
+  width:100%;
+}
+.sf_admin_filter table,
+.sf_admin_list table {
+  width:100%;
+	border:1px solid #ddd;
+}
+
+#sf_admin_container ul.sf_admin_td_actions {
+  white-space:nowrap;
+}
+
+#allbotsform {
+  text-align: center;
+  margin:5px 0 5px 0;
+  clear:both;
+}
+
+.box fieldset {
+	border:1px solid #bbb;
+	padding:10px;
+	position:relative;
+	background:#e9e9e9;
+	margin-bottom:10px;
+}
+.box legend {
+	font-size:1.1em;
+	padding:.4em .8em;
+	background:#fff;
+	border:1px solid #bbb;
+}
+.box fieldset input[type=submit] {
+  margin-top:8px;
+  width:60%;
+}
+.box fieldset p label {
+	width:98%;
+}
+.box fieldset p input {
+	width:98%;
+}
+.box fieldset p select {
+	width:99%;
+}
+
+/**
+ * ASSISTANT
+ */
+
+table.assistant td {
+  vertical-align: top;
+}
+table.assistant .radio {
+  margin:2px 0;
+}
+table.assistant .label {
+  float:none;
+  width:auto;
+  display:block;
+  margin:4px 0 0 0;
+}
+table.assistant .radio .label {
+  float:none;
+  width:auto;
+  display:inline;
+  margin:0 0 0 10px;
+}

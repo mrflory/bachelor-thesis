@@ -1,0 +1,8 @@
+.bzr
+.bzrignore
+nbproject
+cache/*
+log/*
+lib/vendor/*
+*~
+bachelor.sql.gz

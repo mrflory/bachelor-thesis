@@ -1,0 +1,40 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Participant
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          participant
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _new:             { label: "Create a new Participant" }
+      fields:
+        name:             { help: "Name or number which is shown for identification" }
+        init_money:       { help: "Inital available credits" }
+        money:            { help: "Current amount of credits" }
+        earned_money:     { help: "Credits earned through winning or buying a product" }
+      list:
+        title:            Participants of a Session
+        display:          [id, =name, ip, session, money]
+        max_per_page:     10
+        sort:             [id, desc]
+        object_actions:
+          _edit:          ~
+          _delete:        ~
+          resetParticipant: { label: Reset, action: resetParticipant }
+      filter:
+        display:          [session_id, name, init_money]
+      form:
+        display:
+          NONE:           [session_id]
+          "Settings":     [name, init_money, money, earned_money, ip]
+      edit:
+        title:            Edit Participant "%%name%%"
+      new:
+        title:            New Participant

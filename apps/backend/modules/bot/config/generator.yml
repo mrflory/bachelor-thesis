@@ -1,0 +1,37 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Bot
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          bot
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _new:             { label: "Create a new bot" }
+      fields:  ~
+      list:
+        title:            Bot Management
+        display:          [=id, bidder, active, init_numbids, start, end]
+        max_per_page:     10
+        sort:             [id, desc]
+        object_actions:
+          _edit:          ~
+          _delete:        ~
+          deactivateBot:  { label: Deactivate, action: deactivateBot }
+      filter:
+        display:          [bidder_id, auction_id, active]
+      form:
+        display:
+          NONE:           [auction_id, bidder_id]
+          "Bot Settings": [active, init_numbids, start, end]
+          "Internal":     [price, countdown, numbids, last_use]
+      edit:
+        title:            Edit Bot "%%id%%"
+      new:
+        title:            New Bot

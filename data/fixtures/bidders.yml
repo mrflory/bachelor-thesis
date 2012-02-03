@@ -1,0 +1,115 @@
+Bidder:
+    # Testsession 1
+    Testbidder1:
+        Auction: Testauction1
+        Participant: Testparticipant1
+    Testbidder2:
+        Auction: Testauction2
+        Participant: Testparticipant1
+        valuation: 10
+    Testbidder3:
+        Auction: Testauction3
+        Participant: Testparticipant1
+    Testbidder4:
+        Auction: Testauction1
+        Participant: Testparticipant2
+        bid_fee: 2
+    Testbidder5:
+        Auction: Testauction2
+        Participant: Testparticipant2
+    Testbidder6:
+        Auction: Testauction3
+        Participant: Testparticipant2
+        valuation: 10
+    Testbidder7:
+        Auction: Testauction1
+        Participant: Testparticipant3
+    Testbidder8:
+        Auction: Testauction2
+        Participant: Testparticipant3
+    Testbidder9:
+        Auction: Testauction3
+        Participant: Testparticipant3
+    Testbidder10:
+        Auction: Testauction1
+        Participant: Testparticipant4
+        bid_fee: 2
+    Testbidder11:
+        Auction: Testauction2
+        Participant: Testparticipant4
+    Testbidder12:
+        Auction: Testauction3
+        Participant: Testparticipant4
+    Testbidder13:
+        Auction: Testauction1
+        Participant: Testparticipant5
+    Testbidder14:
+        Auction: Testauction2
+        Participant: Testparticipant5
+    Testbidder15:
+        Auction: Testauction3
+        Participant: Testparticipant5
+    Testbidder16:
+        Auction: Testauction1
+        Participant: Testparticipant6
+    Testbidder17:
+        Auction: Testauction2
+        Participant: Testparticipant6
+    Testbidder18:
+        Auction: Testauction3
+        Participant: Testparticipant6
+    # Testsession 2
+    Testbidder20:
+        Auction: Testauction4
+        Participant: Testparticipant7
+    Testbidder21:
+        Auction: Testauction5
+        Participant: Testparticipant7
+    Testbidder22:
+        Auction: Testauction6
+        Participant: Testparticipant7
+    Testbidder23:
+        Auction: Testauction4
+        Participant: Testparticipant8
+    Testbidder24:
+        Auction: Testauction5
+        Participant: Testparticipant8
+    Testbidder25:
+        Auction: Testauction6
+        Participant: Testparticipant8
+    Testbidder26:
+        Auction: Testauction4
+        Participant: Testparticipant9
+    Testbidder27:
+        Auction: Testauction5
+        Participant: Testparticipant9
+    Testbidder28:
+        Auction: Testauction6
+        Participant: Testparticipant9
+    Testbidder29:
+        Auction: Testauction4
+        Participant: Testparticipant10
+    Testbidder30:
+        Auction: Testauction5
+        Participant: Testparticipant10
+    Testbidder31:
+        Auction: Testauction6
+        Participant: Testparticipant10
+    Testbidder32:
+        Auction: Testauction4
+        Participant: Testparticipant11
+    Testbidder33:
+        Auction: Testauction5
+        Participant: Testparticipant11
+    Testbidder34:
+        Auction: Testauction6
+        Participant: Testparticipant11
+    Testbidder35:
+        Auction: Testauction4
+        Participant: Testparticipant12
+    Testbidder36:
+        Auction: Testauction5
+        Participant: Testparticipant12
+    Testbidder37:
+        Auction: Testauction6
+        Participant: Testparticipant12

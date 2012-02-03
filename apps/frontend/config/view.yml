@@ -1,0 +1,20 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Pay-per-Bid Auktion
+    #description:  symfony project
+    #keywords:     symfony, project
+    language:     de
+    #robots:       index, follow
+
+  stylesheets:    [custom-theme/jquery-ui-1.8.14.custom.css, main.css ]
+
+  javascripts:    [jquery-1.6.1.min.js, jquery-ui-1.8.14.custom.min.js, base.js, auction.js]
+
+  has_layout:     true
+  layout:         layout

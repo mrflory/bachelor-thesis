@@ -1,0 +1,54 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Auction
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          auction
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _new:             { label: "Create a new auction" }
+      fields:
+        show_bidders:     { help: "Whether to show history of bids or not" }
+        show_bidbutton:   { help: "Whether to allow manual bidding or not" }
+        show_directbuy:   { help: "Whether to allow to buy product directly or not" }
+        direct_price:     { help: "Price for direct buy" }
+        bidder_id:        { label: Last Bidder, help: "Id of last bidder / auction leader" }
+        bot_behaviour:    { help: "Behaviour of bots, random=Random bot bids, lru=least recently used bot bids, all=all bots bid" }
+        bid_countraise:   { help: "Each bid raises countdown by this amount of time" }
+        bid_raise_start:  { help: "Don't raise countdown until this countdown level is reached" }
+        bid_raise_limit:  { help: "Don't raise countdown above this level" }
+        bid_priceraise:   { help: "Each bid raises price by this amount of credits" }
+        money_spent:      { help: "Sum of all bidding fees spent for this auction" }
+      list:
+        title:            Auctions Management
+        display:          [id, =name, session, start_time, end_time]
+        fields:
+          start_time:     { date_format: dd.MM.yy HH:mm }
+          end_time:       { date_format: dd.MM.yy HH:mm }
+        max_per_page:     10
+        sort:             [id, desc]
+        object_actions:
+          _edit:          ~
+          _delete:        ~
+          startAuction:   { label: Start, action: startAuction }
+          monitor:        { label: Show, action: monitor }
+      filter:
+        display:          [session_id, name, show_bidders, show_bidbutton, show_directbuy, bot_behaviour, price, countdown, bidder_id]
+      form:
+        display:
+          NONE:           [session_id, name, start_time]
+          "Auction Settings": [show_bidders, show_bidbutton, bot_behaviour, bid_countraise, bid_raise_start, bid_raise_limit, bid_priceraise, price, countdown]
+          "Product Settings": [show_directbuy, direct_price, description, image]
+          "Bidder Settings":  [valuation, bid_fee]
+          "Internal":     [current_price, time_remaining, money_spent, last_bid, bidder_id, end_time]
+      edit:
+        title:            Edit Auction "%%name%%"
+      new:
+        title:            New Auction
