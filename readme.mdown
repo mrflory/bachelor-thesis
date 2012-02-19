@@ -9,9 +9,9 @@ You need a webserver like Apache, PHP 5 and a database like MySQL. Furthermore y
 
 To configure the database, please edit the `config/databases.yml` file and run the symfony task `$ php symfony doctrine:build --all --no-confirmation`. There is also some example data included via fixtures: `$ php symfony doctrine:data-load`.
 
-To log into the backend you need a username and a password which can be added and changed in the `apps/backend/config/app.yml` file. The default username is admin with the password payperbid.
+To log into the backend you need a username and a password which can be added and changed in the `apps/backend/config/app.yml` file. The default username is *admin* with the password *payperbid*.
 
-You have to configure your apache so that your url points to the web-folder. The software will not work inside sub-directories. Here is my apache config:
+You have to configure your apache so that your url points to the web-folder. The software will not work inside sub folders. Here is my apache config:
 
     Listen 127.0.0.1:8082
     <VirtualHost 127.0.0.1:8082>
