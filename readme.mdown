@@ -5,13 +5,14 @@ This application simulates pay-per-bid auctions for scientific experiments, whic
 
 ## Installation
 
-You need a webserver like Apache, PHP 5 and a database like MySQL. Furthermore you need to download Symfony 1.4, which is not included in the download above, and place it in the `lib/vendor/symfony` folder. You can download Symfony here: http://www.symfony-project.org/installation . I used version 1.4.11 for my thesis but any 1.4.x version should work.
+You need a webserver like Apache, PHP 5 and a database like MySQL. Furthermore you need to download Symfony 1.4, which is not included in the download above, and place it in the `lib/vendor/symfony` folder. You can download Symfony here: http://www.symfony-project.org/installation. I used version 1.4.11 for my thesis but any 1.4.x version should work.
 
 To configure the database, please edit the `config/databases.yml` file and run the symfony task `$ php symfony doctrine:build --all --no-confirmation`. There is also some example data included via fixtures: `$ php symfony doctrine:data-load`.
 
 To log into the backend you need a username and a password which can be added and changed in the `apps/backend/config/app.yml` file. The default username is admin with the password payperbid.
 
 You have to configure your apache so that your url points to the web-folder. The software will not work inside sub-directories. Here is my apache config:
+
     Listen 127.0.0.1:8082
     <VirtualHost 127.0.0.1:8082>
       ServerAdmin webmaster@localhost
@@ -21,7 +22,7 @@ You have to configure your apache so that your url points to the web-folder. The
         AllowOverride All
         Allow from All
       </Directory>
-
+      
       Alias /sf /home/florian/public_html/bachelor/lib/vendor/symfony/data/web/sf
       <Directory "/home/florian/public_html/bachelor/lib/vendor/symfony/data/web/sf">
         AllowOverride All
@@ -29,7 +30,7 @@ You have to configure your apache so that your url points to the web-folder. The
       </Directory>
     </VirtualHost>
 
-Once installed you should reach the frontend under [127.0.0.1:8082](127.0.0.1:8082) and the backend under [127.0.0.1:8082/backend.php](127.0.0.1:8082/backend.php). Sometimes it may help to call the development version: [127.0.0.1:8082/frontend_dev.php](127.0.0.1:8082/frontend_dev.php) and [127.0.0.1:8082/backend_dev.php](127.0.0.1:8082/backend_dev.php). You may also clear the cache with `$ php symfony cc` if you have any problems.
+Once installed you should reach the frontend under [127.0.0.1:8082](http://127.0.0.1:8082) and the backend under [127.0.0.1:8082/backend.php](http://127.0.0.1:8082/backend.php). Sometimes it may help to call the development version: [127.0.0.1:8082/frontend_dev.php](http://127.0.0.1:8082/frontend_dev.php) and [127.0.0.1:8082/backend_dev.php](http://127.0.0.1:8082/backend_dev.php). You may also clear the cache with `$ php symfony cc` if you have any problems.
 
 To stop auctions and for the automatic bidding bots a php script needs to be started in the background by the following command: `$ php lib/daemon.php`
 
