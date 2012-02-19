@@ -1,6 +1,6 @@
 # Bachelor Thesis: Pay-per-bid Auction Simulator
 
-I developed this software as my bachelor thesis at the University of Paderborn. You can download the theoretical part  - only in German - as PDF file here: http://www.mendeley.com/profiles/florian-stallmann/ .
+I developed this software as my bachelor thesis at the University of Paderborn. You can download the theoretical part  - only in German - as [PDF file](http://www.mendeley.com/profiles/florian-stallmann/ "My Mendeley profile with the download of my bachelor thesis").
 This application simulates pay-per-bid auctions for scientific experiments, which are configurable by a lot of different settings and parameters.
 
 ## Installation
@@ -12,28 +12,28 @@ To configure the database, please edit the `config/databases.yml` file and run t
 To log into the backend you need a username and a password which can be added and changed in the `apps/backend/config/app.yml` file. The default username is admin with the password payperbid.
 
 You have to configure your apache so that your url points to the web-folder. The software will not work inside sub-directories. Here is my apache config:
-`Listen 127.0.0.1:8082
-<VirtualHost 127.0.0.1:8082>
-  ServerAdmin webmaster@localhost
-  DocumentRoot "/home/florian/public_html/bachelor/web"
-  DirectoryIndex index.php
-  <Directory "/home/florian/public_html/bachelor/web">
-    AllowOverride All
-    Allow from All
-  </Directory>
+    Listen 127.0.0.1:8082
+    <VirtualHost 127.0.0.1:8082>
+      ServerAdmin webmaster@localhost
+      DocumentRoot "/home/florian/public_html/bachelor/web"
+      DirectoryIndex index.php
+      <Directory "/home/florian/public_html/bachelor/web">
+        AllowOverride All
+        Allow from All
+      </Directory>
 
-  Alias /sf /home/florian/public_html/bachelor/lib/vendor/symfony/data/web/sf
-  <Directory "/home/florian/public_html/bachelor/lib/vendor/symfony/data/web/sf">
-    AllowOverride All
-    Allow from All
-  </Directory>
-</VirtualHost>`
+      Alias /sf /home/florian/public_html/bachelor/lib/vendor/symfony/data/web/sf
+      <Directory "/home/florian/public_html/bachelor/lib/vendor/symfony/data/web/sf">
+        AllowOverride All
+        Allow from All
+      </Directory>
+    </VirtualHost>
 
-Once installed you should reach the frontend under 127.0.0.1:8082 and the backend under 127.0.0.1:8082/backend.php. Sometimes it may help to call the development version: 127.0.0.1:8082/frontend_dev.php and 127.0.0.1:8082/backend_dev.php. You may also clear the cache with `$ php symfony cc` if you have any problems.
+Once installed you should reach the frontend under [127.0.0.1:8082](127.0.0.1:8082) and the backend under [127.0.0.1:8082/backend.php](127.0.0.1:8082/backend.php). Sometimes it may help to call the development version: [127.0.0.1:8082/frontend_dev.php](127.0.0.1:8082/frontend_dev.php) and [127.0.0.1:8082/backend_dev.php](127.0.0.1:8082/backend_dev.php). You may also clear the cache with `$ php symfony cc` if you have any problems.
 
 To stop auctions and for the automatic bidding bots a php script needs to be started in the background by the following command: `$ php lib/daemon.php`
 
-For a more detailed intruction refer to the Symfony documentation: http://www.symfony-project.org/jobeet/1_4/Doctrine/en/01 .
+For a more detailed intruction refer to the Symfony documentation: http://www.symfony-project.org/jobeet/1_4/Doctrine/en/01.
 
 ## Using the software
 
