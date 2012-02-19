@@ -10,13 +10,13 @@
   </head>
   <body>
     <header>
-        <h1><?php echo sfConfig::get('app_title') ?></h1>
+        <h1><?php echo __(sfConfig::get('app_title')) ?></h1>
     </header>
     <div id="wrapper">
         <section class="width24" id="instructions">
             <article class="box">
                 <header class="visible">
-                    <h2>Anleitung</h2>
+                    <h2><?php echo __('Anleitung') ?></h2>
                 </header>
                 <p>
                   Sie sind Teilnehmer einer Pay-per-Bid Auktion, d.h. Sie zahlen eine Gebühr für jedes abgegebene Gebot und mit jedem Gebot erhöht sich der Auktionspreis
@@ -35,9 +35,9 @@
         <section class="width24">
             <article class="box error">
                 <header>
-                    <h2>Fehler</h2>
+                    <h2><?php echo __('Fehler') ?></h2>
                 </header>
-                <?php echo $sf_user->getFlash('error') ?>
+                <?php echo __($sf_user->getFlash('error')) ?>
             </article>
         </section>
         <?php endif ?>
@@ -46,9 +46,9 @@
         <section class="width24">
             <article class="box notice">
                 <header>
-                    <h2>Hinweis</h2>
+                    <h2><?php echo __('Hinweis') ?></h2>
                 </header>
-                <?php echo $sf_user->getFlash('notice') ?>
+                <?php echo __($sf_user->getFlash('notice')) ?>
             </article>
         </section>
         <?php endif ?>
@@ -61,7 +61,7 @@
             <div class="width8" id="auction">
                 <article class="box">
                     <header>
-                        <h2>Auktion</h2>
+                        <h2><?php echo __('Auktion') ?></h2>
                     </header>
                     <div id="curprice" title="Aktueller Auktionspreis">0.00</div>
                     <div id="timeremain" title="Countdown">0:00</div>

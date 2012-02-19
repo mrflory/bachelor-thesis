@@ -1,49 +1,49 @@
 Participant:
     Testparticipant1:
         Session: Testsession1
-        name: 'Teilnehmer #1'
+        name: 'Participant #1'
         init_money: 1000
     Testparticipant2:
         Session: Testsession1
-        name: 'Teilnehmer #2'
+        name: 'Participant #2'
         init_money: 1000
     Testparticipant3:
         Session: Testsession1
-        name: 'Teilnehmer #3'
+        name: 'Participant #3'
         init_money: 1000
     Testparticipant4:
         Session: Testsession1
-        name: 'Teilnehmer #4'
+        name: 'Participant #4'
         init_money: 1000
     Testparticipant5:
         Session: Testsession1
-        name: 'Teilnehmer #5'
+        name: 'Participant #5'
         init_money: 1000
     Testparticipant6:
         Session: Testsession1
-        name: 'Teilnehmer #6'
+        name: 'Participant #6'
         init_money: 1000
     Testparticipant7:
         Session: Testsession2
-        name: 'Teilnehmer #7'
+        name: 'Participant #7'
         init_money: 1000
     Testparticipant8:
         Session: Testsession2
-        name: 'Teilnehmer #8'
+        name: 'Participant #8'
         init_money: 1000
     Testparticipant9:
         Session: Testsession2
-        name: 'Teilnehmer #9'
+        name: 'Participant #9'
         init_money: 1000
     Testparticipant10:
         Session: Testsession2
-        name: 'Teilnehmer #10'
+        name: 'Participant #10'
         init_money: 1000
     Testparticipant11:
         Session: Testsession2
-        name: 'Teilnehmer #11'
+        name: 'Participant #11'
         init_money: 1000
     Testparticipant12:
         Session: Testsession2
-        name: 'Teilnehmer #12'
+        name: 'Participant #12'
         init_money: 1000

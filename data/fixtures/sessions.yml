@@ -1,9 +1,9 @@
 Session:
     Testsession1:
-        name: Testsession Euro
+        name: Test session Euro
         currency: '%01.2f Euro'
         active: 0
     Testsession2:
-        name: Testsession USD
+        name: Test session USD
         currency: '$%01.2f'
         active: 0

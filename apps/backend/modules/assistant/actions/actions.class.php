@@ -46,7 +46,7 @@ class assistantActions extends sfActions
     if ($form->isValid()) {
       $this->data = $form->getValues();
     } else {
-      $this->getUser()->setFlash('error', 'Session konnte nicht angelegt werden!');
+      $this->getUser()->setFlash('error', 'Session could not be created!');
       $this->redirect('assistant/index');
     }
   }
@@ -105,7 +105,7 @@ class assistantActions extends sfActions
       $conn->commit();
     } catch(Exception $e) {
       #throw $e;
-      $this->getUser()->setFlash('error', 'Neue Sitzung konnte nicht angelegt werden! (' . $e->getMessage() . ')');
+      $this->getUser()->setFlash('error', 'New session could not be created! (' . $e->getMessage() . ')');
       $conn->rollback();
       $this->redirect('assistant/index');
     }
@@ -156,9 +156,9 @@ class assistantActions extends sfActions
     }
 
     if($error) {
-      $this->getUser()->setFlash('error', 'Sitzung wurde angelegt, allerdings konnten nicht alle Bieter-Einstellungen übernommen werden!');
+      $this->getUser()->setFlash('error', 'Session created, but could not apply all bidder settings!');
     } else {
-      $this->getUser()->setFlash('notice', 'Neue Sitzung erfolgreich angelegt!');
+      $this->getUser()->setFlash('notice', 'Successfully created session!');
     }
     $this->redirect('assistant/index');
   }
@@ -185,7 +185,7 @@ class assistantActions extends sfActions
     $this->forward404Unless($auction = Doctrine_Core::getTable('Auction')->find($request->getParameter('auction_id')),
                                               sprintf('Object auction does not exist (%s).', $request->getParameter('auction_id')));
 
-    if($request->getParameter('submit') == 'Auktion unterbrechen') {
+    if($request->getParameter('submit') == 'Interrupt auction') {
       $auction->interruptAuction();
     } else {
       $auction->stopAuction();

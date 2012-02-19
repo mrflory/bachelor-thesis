@@ -22,7 +22,7 @@ class monitorActions extends sfActions
 
     $fp = fopen(sfConfig::get('sf_lib_dir') . '/daemon.lock', 'r');
     if($fp && flock($fp, LOCK_EX | LOCK_NB)) {
-      $this->getUser()->setFlash('error', 'Dämon wurde nicht gestartet! Auktionen werden nicht beendet und Bots werden nicht bieten. Sie können den Dämon mit folgendem Kommando starten: "php '.sfConfig::get('sf_lib_dir').'/daemon.php"', false);
+      $this->getUser()->setFlash('error', 'Daemon is not started! Auctions will not be finished and bots will not bid. You can start the daemon with the following command: "php '.sfConfig::get('sf_lib_dir').'/daemon.php"', false);
     }
 
     $this->running = true;
@@ -31,10 +31,10 @@ class monitorActions extends sfActions
       $this->session = $this->auction->getSession();
       if(!$this->auction->getStartTime()) {
         $this->running = false;
-        $this->getUser()->setFlash('notice', 'Diese Auktion wurde noch nicht gestartet!', false);
+        $this->getUser()->setFlash('notice', 'Auction has not been started yet!', false);
       } elseif($this->auction->getEndTime()) {
         $this->running = false;
-        $this->getUser()->setFlash('notice', 'Diese Auktion wurde bereits beendet!', false);
+        $this->getUser()->setFlash('notice', 'Auction has already been finished!', false);
       }
     } else {
       $this->auction = Doctrine_Core::getTable('Auction')->getActiveAuction();
@@ -42,7 +42,7 @@ class monitorActions extends sfActions
 
       if($this->auction == false) {
         $this->session = false;
-        $this->getUser()->setFlash('notice', 'Keine Auktion aktiv!', false);
+        $this->getUser()->setFlash('notice', 'No active auction!', false);
       } else {
         $this->session = $this->auction->getSession();
       }

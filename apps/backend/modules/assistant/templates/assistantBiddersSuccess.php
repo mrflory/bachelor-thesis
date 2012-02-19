@@ -2,11 +2,11 @@
 <div class="width24">
     <article class="box">
         <header>
-            <h2>Bieter</h2>
+            <h2>Bidder</h2>
         </header>
         <table>
           <thead>
-            <tr><th>Teilnehmer</th><th>Bewertung</th><th>Bietgebühr</th></tr>
+            <tr><th>Participants</th><th>Valuation</th><th>Bid fee</th></tr>
           </thead>
           <tbody>
             <?php $x = 0; foreach($auctions as $i => $auction): ?>
@@ -28,11 +28,11 @@
 <div class="width24">
     <article class="box">
         <header>
-            <h2>Assistent</h2>
+            <h2>Assistant</h2>
         </header>
 
         <div style="text-align: right">
-          <input type="submit" value="Fertig" />
+          <input type="submit" value="Finish" />
         </div>
     </article>
 </div>

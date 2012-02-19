@@ -4,7 +4,7 @@
 # default values
 all:
   .general:
-    title:        'Bachelor Arbeit :: Administration'
+    title:        'Bachelor Thesis :: Administration'
   users:
     admin:        'payperbid'
-    benutzer2:    'password-von-benutzer-2'
+    user2:        'password-for-user-2'

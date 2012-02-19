@@ -4,7 +4,7 @@ var url_update = "/backend/monitor/status";
  * Show error message if Ajax Request failed
  */
 function ajaxError(data, status, error) {
-  alert('Ein Fehler ist aufgetreten: ' + error);
+  alert('An error occurred: ' + error);
 }
 
 /**
@@ -22,7 +22,7 @@ function updateAuction(data) {
     if(data.a_lastbidder) {
       $( "#a_lastbidder" ).text(data.a_lastbidder);
     } else {
-      $( "#a_lastbidder" ).html("<i>Noch keiner!</i>");
+      $( "#a_lastbidder" ).html("<i>No one yet!</i>");
     }
 
     $( "#participants table > tbody" ).html(data.participants);

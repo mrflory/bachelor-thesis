@@ -10,9 +10,9 @@ var interface_active = true;
  */
 function ajaxError(data, status, error) {
   if(status == 'timeout') {
-    $( "#dialog_error .messagetext" ).html('Ein Fehler ist aufgetreten.<br />Der Server ist momentan nicht erreichbar.');
+    $( "#dialog_error .messagetext" ).html('An error occurred.<br />Server is currently not available.');
   }else {
-    $( "#dialog_error .messagetext" ).html('Ein Fehler ist aufgetreten.<br />Aktualisieren Sie die Seite.<br /><br />Fehler: ' + error);
+    $( "#dialog_error .messagetext" ).html('An error occurred.<br />Please refresh the page.<br /><br />Error: ' + error);
   }
   dialog_error.dialog('open');
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="DE" target-language="en" datatype="plaintext" original="messages" date="2012-02-19T22:00:10Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>Anleitung</source>
+        <target>Manual</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Fehler</source>
+        <target>Error</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Hinweis</source>
+        <target>Notice</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Auktion</source>
+        <target>Auction</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Pay-per-Bid Auktion</source>
+        <target>Pay-per-Bid Auction</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Aktive Session ist bereits voll!</source>
+        <target>Active session is already full!</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Keine Session aktiv!</source>
+        <target>No active session!</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Aktive Session wurde geändert. Ein neuer Teilnehmer wurde zugewiesen.</source>
+        <target>Active session has been changed. A new participant has been allocated.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

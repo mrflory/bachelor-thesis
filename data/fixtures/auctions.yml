@@ -1,41 +1,41 @@
 Auction:
     Testauction1:
-        name: 'Testauktion #1 (Verlauf, Kauf, Bots lru)'
+        name: 'Test auction #1 (History, Buy now, Bots lru)'
         Session: Testsession1
         bot_behaviour: lru
         countdown: 120
         show_directbuy: true
         direct_price: 60
-        description: Dies ist eine Produktbeschreibung.
+        description: This is a product description.
         valuation: 50
         bid_fee: 1
     Testauction2:
-        name: 'Testauktion #2 (Verlauf, Kauf, Bots all)'
+        name: 'Test auction #2 (History, Buy now, Bots all)'
         Session: Testsession1
         bot_behaviour: all
         show_directbuy: true
         direct_price: 30
-        description: Dies ist eine Produktbeschreibung.
+        description: This is a product description.
         valuation: 30
         bid_priceraise: 4
         bid_fee: 2
     Testauction3:
-        name: 'Testauktion #3 (Verlauf, Bots lru, Bieten aus)'
+        name: 'Test auction #3 (History, Bots lru, Bidding off)'
         Session: Testsession1
         show_bidbutton: false
         bot_behaviour: lru
         description: Nur Bots möglich.
         valuation: 30
     Testauction4:
-        name: 'Testauktion #4 (Verlauf, Bots random, fixed-price)'
+        name: 'Test auction #4 (History, Bots random, fixed-price)'
         Session: Testsession2
         bid_priceraise: 0
         price: 45
         bot_behaviour: random
         valuation: 40
-        description: Fixed-price Auktion.
+        description: Fixed-price  auction.
     Testauction5:
-        name: 'Testauktion #5 (Verlauf, Kauf, Bots all, Bieten aus)'
+        name: 'Test auction #5 (History, Buy now, Bots all, Bidding off)'
         Session: Testsession2
         show_bidbutton: false
         bot_behaviour: all
@@ -43,7 +43,7 @@ Auction:
         direct_price: 55
         valuation: 50
     Testauction6:
-        name: 'Testauktion #6 (Verlauf aus, Bots aus, Kauf aus)'
+        name: 'Test auction #6 (History off, Bots off, Buy now off)'
         Session: Testsession2
         bot_behaviour: off
         show_bidders: false

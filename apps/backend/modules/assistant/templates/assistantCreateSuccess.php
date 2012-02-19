@@ -5,19 +5,19 @@
             <h2>Session</h2>
         </header>
         <p><label for="session_name">Name:</label><br /><input type="text" id="session_name" name="session[name]" value="<?php echo $data['name'] ?>" required /></p>
-        <p><label for="currency">Währung:</label><br /><input type="text" id="currency" name="session[currency]" value="<?php echo $data['currency'] ?>" required /></p>
-        <p><label for="session_comment">Interner Kommentar:</label><br /><textarea name="session[comment]" id="session_comment"></textarea></p>
-        <p><label for="session_message">Nachricht an Teilnehmer:</label><br /><textarea name="session[message]" id="session_message"></textarea></p>
+        <p><label for="currency">Currency:</label><br /><input type="text" id="currency" name="session[currency]" value="<?php echo $data['currency'] ?>" required /></p>
+        <p><label for="session_comment">Internal comment:</label><br /><textarea name="session[comment]" id="session_comment"></textarea></p>
+        <p><label for="session_message">Message for participants:</label><br /><textarea name="session[message]" id="session_message"></textarea></p>
     </article>
 </div>
 <div class="width12">
     <article class="box">
         <header>
-            <h2>Teilnehmer</h2>
+            <h2>Participants</h2>
         </header>
         <table>
           <thead>
-            <tr><th>Name</th><th>Guthaben</th></tr>
+            <tr><th>Name</th><th>Money</th></tr>
           </thead>
           <tbody>
             <?php for($i=0;$i<$data['anz_part'];$i++): ?>
@@ -33,7 +33,7 @@
 <div class="width24">
     <article class="box">
         <header>
-            <h2>Auktionen</h2>
+            <h2>Auctions</h2>
         </header>
         <table class="assistant">
           <colgroup>
@@ -43,7 +43,7 @@
             <col width="20%" />
           </colgroup>
           <thead>
-            <tr><th>Name / Interface</th><th>Bot / Auktionstyp</th><th>Sofortkauf</th><th>Bieter Standardwerte</th></tr>
+            <tr><th>Name / Interface</th><th>Bot / Auction type</th><th>Buy it now</th><th>Bidder default values</th></tr>
           </thead>
           <tbody>
             <?php for($i=0;$i<$data['anz_auct'];$i++): ?>
@@ -54,17 +54,17 @@
                 <div class="radio">
                   <input type="radio" id="auction_<?php echo $i ?>_show_bidders1" name="auction[<?php echo $i ?>][show_bidders]" value="1" checked /><label for="auction_<?php echo $i ?>_show_bidders1">an</label>
                   <input type="radio" id="auction_<?php echo $i ?>_show_bidders2" name="auction[<?php echo $i ?>][show_bidders]" value="0" /><label for="auction_<?php echo $i ?>_show_bidders2">aus</label>
-                  <span class="label">Verlauf</span>
+                  <span class="label">History</span>
                 </div>
                 <div class="radio">
                   <input type="radio" id="auction_<?php echo $i ?>_show_bidbutton1" name="auction[<?php echo $i ?>][show_bidbutton]" value="1" checked /><label for="auction_<?php echo $i ?>_show_bidbutton1">an</label>
                   <input type="radio" id="auction_<?php echo $i ?>_show_bidbutton2" name="auction[<?php echo $i ?>][show_bidbutton]" value="0" /><label for="auction_<?php echo $i ?>_show_bidbutton2">aus</label>
-                  <span class="label">Manuell bieten</span>
+                  <span class="label">Manual bidding</span>
                 </div>
                 <div class="radio">
                   <input type="radio" id="auction_<?php echo $i ?>_show_directbuy1" name="auction[<?php echo $i ?>][show_directbuy]" value="1" /><label for="auction_<?php echo $i ?>_show_directbuy1">an</label>
                   <input type="radio" id="auction_<?php echo $i ?>_show_directbuy2" name="auction[<?php echo $i ?>][show_directbuy]" value="0" checked /><label for="auction_<?php echo $i ?>_show_directbuy2">aus</label>
-                  <span class="label">Sofortkauf</span>
+                  <span class="label">Buy it now</span>
                 </div>
               </td>
               <td>
@@ -74,30 +74,30 @@
                   <input type="radio" id="auction_<?php echo $i ?>_bot_behaviour3" name="auction[<?php echo $i ?>][bot_behaviour]" value="lru" /><label for="auction_<?php echo $i ?>_bot_behaviour3">lru</label>
                   <input type="radio" id="auction_<?php echo $i ?>_bot_behaviour4" name="auction[<?php echo $i ?>][bot_behaviour]" value="random" /><label for="auction_<?php echo $i ?>_bot_behaviour4">random</label>
                 </div>
-                <span class="label">Preissteigerung pro Gebot</span>
+                <span class="label">Price increase per bid</span>
                 <input type="number" name="auction[<?php echo $i ?>][bid_priceraise]" min="0" value="<?php echo $data['bid_priceraise'] ?>" step="0.01" required />
                 <br />
-                <span class="label">Startpreis</span>
+                <span class="label">Start price</span>
                 <input type="number" name="auction[<?php echo $i ?>][price]" min="0" value="0" required />
                 <br />
                 <span class="label">Countdown</span>
                 <input type="number" name="auction[<?php echo $i ?>][countdown]" min="1" value="<?php echo $data['countdown'] ?>" required />
               </td>
               <td>
-                <span class="label">Kaufpreis</span>
+                <span class="label">Buy it now price</span>
                 <input type="number" name="auction[<?php echo $i ?>][direct_price]" min="0" onchange="$( '#auction_<?php echo $i ?>_show_directbuy1' ).prop({checked: true});$( '#auction_<?php echo $i ?>_show_directbuy1' ).button( 'refresh' );" />
                 <br />
-                <span class="label">Beschreibung</span>
+                <span class="label">Description</span>
                 <textarea name="auction[<?php echo $i ?>][description]"></textarea>
                 <br />
-                <span class="label">Bild</span>
+                <span class="label">Image</span>
                 <input type="file" name="auction[<?php echo $i ?>][image]" accept="image/*" />
               </td>
               <td>
-                <span class="label">Bewertung des Produkts</span>
+                <span class="label">Product valuation</span>
                 <input type="number" name="auction[<?php echo $i ?>][valuation]" min="0" required />
                 <br />
-                <span class="label">Gebühr pro Gebot</span>
+                <span class="label">Fee per bid</span>
                 <input type="number" name="auction[<?php echo $i ?>][bid_fee]" min="0" value="<?php echo $data['bid_fee'] ?>" step="0.01" required />
               </td>
             </tr>
@@ -109,11 +109,11 @@
 <div class="width24">
     <article class="box">
         <header>
-            <h2>Assistent</h2>
+            <h2>Assistant</h2>
         </header>
 
         <div style="text-align: right">
-          <input type="submit" value="Weiter" />
+          <input type="submit" value="Next" />
         </div>
     </article>
 </div>

@@ -6,7 +6,7 @@ default:
     content-type: text/html
 
   metas:
-    title:        'Bachelor Arbeit :: Administration'
+    title:        'Bachelor Thesis :: Administration'
     #description:  symfony project
     #keywords:     symfony, project
     language:     en
@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [custom-theme/jquery-ui-1.8.14.custom.css, main.css, admin.css]
 
-  javascripts:    [jquery-1.6.1.min.js, jquery-ui-1.8.14.custom.min.js, admin.js]
+  javascripts:    [jquery-1.7.1.min.js, jquery-ui-1.8.14.custom.min.js, admin.js]
 
   has_layout:     true
   layout:         layout

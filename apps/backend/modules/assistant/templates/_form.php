@@ -4,23 +4,23 @@
 <form action="<?php echo url_for('assistant/assistantCreate') ?>" method="post">
   <?php echo $form->renderHiddenFields() ?>
   <fieldset>
-    <legend>Sessiondaten</legend>
+    <legend>Session data</legend>
     <p><label for="session_name">Name:</label><input type="text" id="session_name" name="session[name]" required /></p>
-    <p><label for="currency">Währung:</label><input type="text" id="currency" name="session[currency]" required /></p>
+    <p><label for="currency">Currency:</label><input type="text" id="currency" name="session[currency]" required /></p>
   </fieldset>
   <fieldset>
-    <legend>Einstellungen</legend>
-    <p><label for="anz_part">Anzahl Teilnehmer:</label><input type="number" id="anz_part" name="session[anz_part]" min="1" value="1" required /></p>
-    <p><label for="anz_auct">Anzahl Auktionen:</label><input type="number" id="anz_auct" name="session[anz_auct]" min="1" value="1" required /></p>
+    <legend>Settings</legend>
+    <p><label for="anz_part">Number of participants:</label><input type="number" id="anz_part" name="session[anz_part]" min="1" value="1" required /></p>
+    <p><label for="anz_auct">Number of auctions:</label><input type="number" id="anz_auct" name="session[anz_auct]" min="1" value="1" required /></p>
   </fieldset>
   <fieldset>
-    <legend>Standardwerte</legend>
-    <p><label for="money">Teilnehmer Guthaben:</label><input type="number" id="money" name="session[money]" min="0" value="0" required /></p>
-    <p><label for="countdown">Auktion Countdown:</label><input type="number" id="countdown" name="session[countdown]" min="1" value="60" required /></p>
-    <p><label for="bid_priceraise">Preissteigerung:</label><input type="number" id="bid_priceraise" name="session[bid_priceraise]" min="0" value="1" step="0.01" required /></p>
-    <p><label for="bid_fee">Gebühr:</label><input type="number" id="bid_fee" name="session[bid_fee]" min="0" value="0.1" step="0.01" required /></p>
+    <legend>Defaults</legend>
+    <p><label for="money">Participant money:</label><input type="number" id="money" name="session[money]" min="0" value="0" required /></p>
+    <p><label for="countdown">Auction countdown:</label><input type="number" id="countdown" name="session[countdown]" min="1" value="60" required /></p>
+    <p><label for="bid_priceraise">Price increase:</label><input type="number" id="bid_priceraise" name="session[bid_priceraise]" min="0" value="1" step="0.01" required /></p>
+    <p><label for="bid_fee">Fee:</label><input type="number" id="bid_fee" name="session[bid_fee]" min="0" value="0.1" step="0.01" required /></p>
   </fieldset>
-  <input type="submit" value="Anlegen" />
+  <input type="submit" value="Create" />
 </form>
 
 <?php /*

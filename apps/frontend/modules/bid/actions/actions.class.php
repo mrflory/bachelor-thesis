@@ -17,6 +17,9 @@ class bidActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
+    $language = $request->getPreferredCulture(array('de', 'en'));
+    $this->getUser()->setCulture($language);
+    
     $this->userip  = $this->getUser()->getUniqueIp();
     $this->session = Doctrine_Core::getTable('Session')->getActiveSession();
 
@@ -140,7 +143,7 @@ class bidActions extends sfActions
     $participant = Doctrine_Core::getTable('Participant')->find($this->getUser()->getAttribute('participant_id'));
     $success = $auction->placeBid($participant, $request->getParameter('curprice'));
 
-    $this->logMessage('Anfrage zur Abgabe eines Gebots ' . ($success ? 'erfolgreich' : 'fehlgeschlagen'));
+    $this->logMessage('Request to make a bid ' . ($success ? 'successfull' : 'failed'));
 
     if ($request->isXmlHttpRequest()) {
       $this->getResponse()->setHttpHeader('Content-type','application/json');
@@ -175,7 +178,7 @@ class bidActions extends sfActions
       $success = false;
     }
 
-    $this->logMessage('Anfrage zu Aktivierung des Biet-Automaten ' . ($success ? 'erfolgreich' : 'fehlgeschlagen'));
+    $this->logMessage('Request to activate a bid bot ' . ($success ? 'successfull' : 'failed'));
 
     if ($request->isXmlHttpRequest()) {
       $this->getResponse()->setHttpHeader('Content-type','application/json');
@@ -203,7 +206,7 @@ class bidActions extends sfActions
     $bidder = Doctrine_Core::getTable('Bidder')->getBidder($request->getParameter('auction_id'), $this->getUser()->getAttribute('participant_id'));
     $success = $bidder->buyDirect($request->getParameter('directtotal'));
 
-    $this->logMessage('Anfrage zum Direktkauf ' . ($success ? 'erfolgreich' : 'fehlgeschlagen'));
+    $this->logMessage('Request for buy it now ' . ($success ? 'successfull' : 'failed'));
 
     if ($request->isXmlHttpRequest()) {
       $this->getResponse()->setHttpHeader('Content-type','application/json');
