@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [custom-theme/jquery-ui-1.8.14.custom.css, main.css ]
 
-  javascripts:    [jquery-1.7.1.min.js, jquery-ui-1.8.14.custom.min.js, base.js, auction.js]
+  javascripts:    [jquery-1.7.1.min.js, jquery-ui-1.8.14.custom.min.js, handlebars-1.0.0.beta.6.js, base.js, auction.js]
 
   has_layout:     true
   layout:         layout

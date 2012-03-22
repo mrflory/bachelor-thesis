@@ -1,57 +1,123 @@
-var url_update = "/backend/monitor/status";
-
 /**
- * Show error message if Ajax Request failed
+ * This file is being used to control the auction in the backend. Needs helper
+ * function of the base.js file.
  */
-function ajaxError(data, status, error) {
-  alert('An error occurred: ' + error);
-}
 
-/**
- * Update auction information, this function is called by ajax request and gets
- * all the data
- */
-function updateAuction(data) {
-  if(data.active) {
-    setCountdown(data.a_timeremain);
-    if($( "#curprice" ).text() != data.a_curprice) {
-      $( "#curprice" ).effect('highlight', {}, 1000);
-    }
-    $( "#curprice" ).text(data.a_curprice);
+(function($){
+    "use strict";
+    
+    var Monitor = {
+        init: function( ) {
+            var self = this;
+            
+            self.base       = window.BaseAuction;
+            self.update_url = $( "input[name='url_update']").val();
+            self.auction_id = $( "input[name='auction_id']").val();
+            
+            self.elements = {
+                curprice:      $( "#curprice" ),
+                lastbidder:    $( "#a_lastbidder" ),
+                part_table:    $( "#participants table > tbody" ),
+                hist_table:    $( "#history table > tbody" ),
+                bots_table:    $( "#bots table > tbody" ),
+                statusmessage: $( "#statusmessage" ),
+                botform:       $( "#allbotsform" )
+            }
+            
+            self.setupAjaxErrors();
+            self.setupBotForm();
+            self.updateAuction( 1 );
+            
+            return this;
+        },
+        
+        /**
+         * Show error message if Ajax Request failed
+         */
+        setupAjaxErrors: function() {
+            $(document).ajaxError(function(event, request, settings) {
+                alert('An error occurred: ' + request.statusText);
+            });
+        },
+        
+        /**
+         * Update auction information, this function is called by ajax request
+         * and gets all the data
+         */
+        updateAuction: function( length ) {
+            var self = this;
+            
+            setTimeout(function() {
+                self.fetch().done(function( results ) {
+                    self.auction_id = results.a_id;
+                    if(results.active) {
+                        self.base.setCountdown(results.a_timeremain);
+                        self.displayAuction(results);
+                        self.updateAuction();
+                    } else {
+                        self.elements.statusmessage.slideDown();
+                        self.updateAuction(2000);
+                    }
+                });
+            }, length || 1000);
+        },
+        
+        /**
+         * Execute ajax request
+         */
+        fetch: function() {
+            var self = this;
+            return $.ajax({
+                url: self.update_url,
+                data: {auction_id: self.auction_id},
+                dataType: 'json'
+            });
+        },
+        
+        /**
+         * Update DOM Elements for auction by given data
+         */
+        displayAuction: function( data ) {
+            var self = this;
+            if(self.elements.curprice.text() != data.a_curprice) {
+                self.elements.curprice.effect('highlight', {}, 1000);
+            }
+            self.elements.curprice.text(data.a_curprice);
 
-    if(data.a_lastbidder) {
-      $( "#a_lastbidder" ).text(data.a_lastbidder);
-    } else {
-      $( "#a_lastbidder" ).html("<i>No one yet!</i>");
-    }
+            if(data.a_lastbidder) {
+                self.elements.lastbidder.text(data.a_lastbidder);
+            } else {
+                self.elements.lastbidder.html("<i>No one yet!</i>");
+            }
 
-    $( "#participants table > tbody" ).html(data.participants);
-    $( "#history table > tbody" ).html(data.history);
-    $( "#bots table > tbody" ).html(data.bots);
-
-    setTimeout(function() {$.getJSON(url_update, 'auction_id=' + data.a_id, updateAuction).error(ajaxError)}, 1000);
-  } else {
-    $( "#statusmessage" ).slideDown();
-    setTimeout(function() {$.getJSON(url_update, 'auction_id=' + data.a_id, updateAuction).error(ajaxError)}, 2000);
-  }
-}
-
-/**
- * Initialization, setup form to send ajax request, start initial ajax request
- */
-$(document).ready(function() {
-  url_update = $( "input[name='url_update']").val();
-
-    $( "#allbotsform" ).submit(function() {
-      $( "#allbotsform input[type=submit]" ).hide();
-      $( "#allbotsform .submitload" ).show();
-      $.post( $( "#allbotsform").attr("action"), $( "#allbotsform").serialize(), function(data) {
-        $( "#allbotsform input[type=submit]" ).show();
-        $( "#allbotsform .submitload" ).hide();
-      } ).error(ajaxError);
-      return false;
-    });
-
-  updateCountdown();
-  $.getJSON(url_update, 'auction_id=' + $( "input[name='auction_id']").val(), updateAuction).error(ajaxError);
-});
+            self.elements.part_table.html(data.participants);
+            self.elements.hist_table.html(data.history);
+            self.elements.bots_table.html(data.bots);
+        },
+        
+        /**
+         * Setup form to send ajax request
+         */
+        setupBotForm: function() {
+            var self = this;
+            var submit_button = self.elements.botform.find( "input[type=submit]" );
+            var submit_load   = self.elements.botform.find( ".submitload" );
+            
+            self.elements.botform.on('submit', function( e ) {
+                submit_button.hide();
+                submit_load.show();
+                $.ajax({
+                    url:  self.elements.botform.attr("action"),
+                    data: self.elements.botform.serialize(),
+                    type: 'POST'
+                }).always(function() {
+                    submit_button.show();
+                    submit_load.hide();
+                });
+                e.preventDefault();
+            });
+        }
+        
+    };
+    window.Monitor = Monitor.init();
+})( jQuery );

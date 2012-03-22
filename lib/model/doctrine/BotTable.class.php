@@ -31,7 +31,7 @@ class BotTable extends Doctrine_Table
         ->from('Bot b')
         ->andWhere('b.auction_id = ?', $auction->getId())
         ->andWhere('b.active = true')
-        ->andWhere('(b.numbids = 0 OR b.end <= ?)', $auction->getCurrentPrice());
+        ->andWhere('(b.numbids = 0 OR b.end < ?)', ($auction->getCurrentPrice() + $auction->getBidPriceraise()) );
 
       $expired = $q->execute();
       foreach($expired as $bot) {
@@ -48,17 +48,19 @@ class BotTable extends Doctrine_Table
     {
       $auction->refresh(true);
       $q = Doctrine_Query::create()
-        ->from('Bot b')
-        ->andWhere('b.auction_id = ?', $auction->getId())
-        ->andWhere('b.active = true')
-        ->andWhere('b.numbids > 0')
-        ->andWhere('b.start <= ?', $auction->getCurrentPrice())
-        ->andWhere('b.end > ?', $auction->getCurrentPrice());
-        
+        ->from('Bot b');
+
       if($auction->relatedExists('LastBidder')) {
         #$q->andWhere('b.bidder_id <> ?', $auction->getBidderId());
         $q->andWhere('b.bidder_id <> ?', $auction->LastBidder->getId());
       }
+      
+      $q->andWhere('b.active = true')
+        ->andWhere('b.auction_id = ?', $auction->getId())
+        ->andWhere('b.numbids > 0')
+        ->andWhere('b.end >= ?', ($auction->getCurrentPrice() + $auction->getBidPriceraise()) )
+        ->andWhere('b.start <= ?', $auction->getCurrentPrice());
+        
       
       if($auction->getBotBehaviour() == 'random') {
         $q->select('b.*, RANDOM() AS rand')

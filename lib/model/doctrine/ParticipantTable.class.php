@@ -36,8 +36,8 @@ class ParticipantTable extends Doctrine_Table
 
       $q = Doctrine_Query::create()
         ->update('Participant p')
-        ->andWhere('p.ip IS NULL')
         ->andWhere('p.session_id = ?', $session->getId())
+        ->andWhere('p.ip IS NULL')
         ->set('p.money', 'p.init_money')
         ->set('p.ip', '?', $userip)
         ->limit(1);

@@ -70,6 +70,15 @@ abstract class BaseParticipant extends sfDoctrineRecord
              'default' => 0,
              'length' => 10,
              ));
+
+
+        $this->index('free_lock', array(
+             'fields' => 
+             array(
+              0 => 'session_id',
+              1 => 'ip',
+             ),
+             ));
     }
 
     public function setUp()

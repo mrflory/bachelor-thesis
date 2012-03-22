@@ -81,11 +81,10 @@ class Bidder extends BaseBidder
     if($this->getActiveBot() !== false) {
       return false;
     }
-    if($this->Auction->getCurrentPrice() >= $values['end']) {
+    if(($this->Auction->getCurrentPrice() + $this->Auction->getBidPriceraise()) > $values['end'] || $values['end'] <= $values['start']) {
       return false;
     }
 
-    #$connection = sfContext::getInstance()->getDatabaseManager()->getDatabase('doctrine')->getDoctrineConnection();
     $connection = Doctrine_Manager::connection();
     $connection->beginTransaction();
     try {

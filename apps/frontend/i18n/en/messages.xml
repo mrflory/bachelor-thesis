@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file source-language="DE" target-language="en" datatype="plaintext" original="messages" date="2012-02-19T22:00:10Z" product-name="messages">
+  <file source-language="DE" target-language="en" datatype="plaintext" original="messages" date="2012-03-21T16:43:59Z" product-name="messages">
     <header/>
     <body>
       <trans-unit id="1">
@@ -35,6 +35,204 @@
       <trans-unit id="8">
         <source>Aktive Session wurde geändert. Ein neuer Teilnehmer wurde zugewiesen.</source>
         <target>Active session has been changed. A new participant has been allocated.</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Anleitung.Text</source>
+        <target><![CDATA[
+            No english explanation currently available.
+            ]]></target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source><![CDATA[Derzeit ist keine Auktion aktiv.<br />Bitte warten.]]></source>
+        <target><![CDATA[Currently no auction is active.<br />Please wait.]]></target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Produkt gekauft! - Bitte warten Sie auf die nächste Auktion.</source>
+        <target>Product bought! - Please wait for the next auction.</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Kauf fehlgeschlagen! - Bitte wenden Sie sich an den Leiter.</source>
+        <target>Buying failed! - Please contact the guide.</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Gebot abgegeben!</source>
+        <target>Bid submitted!</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Bieten fehlgeschlagen! - Eventuell wurden Sie zwischenzeitlich überboten.</source>
+        <target>Bidding failed! - Maybe you have been outbidden meanwhile.</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>Biet-Automat aktiviert! - Sie können nun nicht mehr manuell bieten.</source>
+        <target>Bid bot activated! - Manual bidding has been deactivated.</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Aktivierung fehlgeschlagen! - Bitte überprüfen Sie Ihre Eingaben.</source>
+        <target>Activation failed! - Please verify your input.</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>Sie haben die letzte Auktion zu einem Preis von {{a_finalprice}} gewonnen.</source>
+        <target>You have won the last auction at a price of {{a_finalprice}}.</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>Sie haben die letzte Auktion mit einem Sofortkauf abgeschlossen.</source>
+        <target>You finished the last auction with a direct buy.</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>Die letzte Auktion hat {{a_winner}} zu einem Preis von {{a_finalprice}} gewonnen.</source>
+        <target>{{a_winner}} has won the last auction at a price of {{a_finalprice}}.</target>
+      </trans-unit>
+      <trans-unit id="20">
+        <source>Die letzte Auktion hat niemand gewonnen.</source>
+        <target>No one has won the last auction.</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>Sie haben noch ein Guthaben von {{p_money}}. Bitte warten Sie auf die nächste Auktion.</source>
+        <target>You still have {{p_money}} left. Please wait for the next auction.</target>
+      </trans-unit>
+      <trans-unit id="22">
+        <source><![CDATA[<strong>Sie!</strong>]]></source>
+        <target><![CDATA[<strong>You!</strong>]]></target>
+      </trans-unit>
+      <trans-unit id="23">
+        <source><![CDATA[<i>Noch keiner!</i>]]></source>
+        <target><![CDATA[<i>No one yet!</i>]]></target>
+      </trans-unit>
+      <trans-unit id="26">
+        <source>Sofortkauf</source>
+        <target>Direct buy</target>
+      </trans-unit>
+      <trans-unit id="27">
+        <source>Sie haben die letzte Auktion nicht gewonnen. Wollen Sie das Produkt nun kaufen?</source>
+        <target>You didn't win the last auction. Would you like to buy the product now?</target>
+      </trans-unit>
+      <trans-unit id="28">
+        <source>Ihr Guthaben:</source>
+        <target>Your money:</target>
+      </trans-unit>
+      <trans-unit id="29">
+        <source>Produktpreis:</source>
+        <target>Product price:</target>
+      </trans-unit>
+      <trans-unit id="30">
+        <source>Rabatt:</source>
+        <target>Discount:</target>
+      </trans-unit>
+      <trans-unit id="31">
+        <source>Kaufpreis:</source>
+        <target>Buying price:</target>
+      </trans-unit>
+      <trans-unit id="32">
+        <source>Teilnehmer-Informationen</source>
+        <target>Participant information</target>
+      </trans-unit>
+      <trans-unit id="33">
+        <source>Name:</source>
+        <target>Name:</target>
+      </trans-unit>
+      <trans-unit id="34">
+        <source>Ihr noch verfügbares Guthaben</source>
+        <target>Your available money</target>
+      </trans-unit>
+      <trans-unit id="35">
+        <source>Summe der Produktwerte bisher gewonnener Auktionen oder gekaufter Produkte</source>
+        <target>Sum of the product values of won auctions and bought products so far</target>
+      </trans-unit>
+      <trans-unit id="36">
+        <source>Geldwerte Einnahmen:</source>
+        <target>Earnings:</target>
+      </trans-unit>
+      <trans-unit id="37">
+        <source>Aktueller Auktionspreis</source>
+        <target>Current auction price</target>
+      </trans-unit>
+      <trans-unit id="38">
+        <source>Countdown</source>
+        <target>Countdown</target>
+      </trans-unit>
+      <trans-unit id="39">
+        <source>Aktueller Gewinner</source>
+        <target>Current winner</target>
+      </trans-unit>
+      <trans-unit id="40">
+        <source>Bieten</source>
+        <target>Bid</target>
+      </trans-unit>
+      <trans-unit id="41">
+        <source><![CDATA[Gebot erhöht den Auktionspreis um <span id="a_priceraise">1 Euro</span>]]></source>
+        <target><![CDATA[Each bid raises the auction price by <span id="a_priceraise">1 Euro</span>]]></target>
+      </trans-unit>
+      <trans-unit id="42">
+        <source>Auktions-Informationen</source>
+        <target>Auction information</target>
+      </trans-unit>
+      <trans-unit id="43">
+        <source>Wert des Produkts:</source>
+        <target>Product value:</target>
+      </trans-unit>
+      <trans-unit id="44">
+        <source>Gebühr pro Gebot:</source>
+        <target>Bid fee:</target>
+      </trans-unit>
+      <trans-unit id="45">
+        <source>Summe bisher ausgegebener Bietgebühren</source>
+        <target>Sum of spent bid fees so far</target>
+      </trans-unit>
+      <trans-unit id="46">
+        <source>Produktpreis abzüglich Rabatt</source>
+        <target>Product price minus discount</target>
+      </trans-unit>
+      <trans-unit id="47">
+        <source>Kaufen</source>
+        <target>Buy</target>
+      </trans-unit>
+      <trans-unit id="48">
+        <source>Biet-Automat</source>
+        <target>Bid bot</target>
+      </trans-unit>
+      <trans-unit id="49">
+        <source>Mindest-Auktionspreis ab dem der Biet-Automat bieten soll</source>
+        <target>Minimum auction price where the bid bot shoudl start bidding</target>
+      </trans-unit>
+      <trans-unit id="50">
+        <source>Bieten ab:</source>
+        <target>Bid from:</target>
+      </trans-unit>
+      <trans-unit id="51">
+        <source>Maximal-Auktionspreis bis zu dem der Biet-Automat bieten soll</source>
+        <target>Maximum auction price where the bid bot should stop bidding</target>
+      </trans-unit>
+      <trans-unit id="52">
+        <source>Bieten bis:</source>
+        <target>Bid until:</target>
+      </trans-unit>
+      <trans-unit id="53">
+        <source>Maximale Anzahl an Geboten, die der Biet-Automat machen soll</source>
+        <target>Maximum number of bids which should be made by the bid bot</target>
+      </trans-unit>
+      <trans-unit id="54">
+        <source>Anz. Gebote:</source>
+        <target>No. of bids</target>
+      </trans-unit>
+      <trans-unit id="55">
+        <source>Aktivieren</source>
+        <target>Activate</target>
+      </trans-unit>
+      <trans-unit id="56">
+        <source>Verlauf</source>
+        <target>History</target>
+      </trans-unit>
+      <trans-unit id="57">
+        <source>Gebot</source>
+        <target>Bid</target>
+      </trans-unit>
+      <trans-unit id="58">
+        <source>Bieter</source>
+        <target>Bidder</target>
+      </trans-unit>
+      <trans-unit id="59">
+        <source>Typ</source>
+        <target>Type</target>
       </trans-unit>
     </body>
   </file>

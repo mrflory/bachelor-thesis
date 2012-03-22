@@ -6,7 +6,6 @@
     <?php include_title() ?>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
-    <?php include_javascripts() ?>
   </head>
   <body>
     <header>
@@ -59,5 +58,7 @@
             Bachelor-Arbeit, Florian Stallmann, Universität Paderborn, Information Management &amp; E-Finance
         </footer>
     </div>
+      
+    <?php include_javascripts() ?>
   </body>
 </html>

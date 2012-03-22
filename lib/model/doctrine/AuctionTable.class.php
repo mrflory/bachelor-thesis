@@ -41,9 +41,8 @@ class AuctionTable extends Doctrine_Table
       $alias = $q->getRootAlias();
    
       $q->andWhere($alias . '.session_id = ?', $session->getId())
-        ->andWhere($alias . '.start_time <= ?', date('Y-m-d H:i:s', time()))
-        #->andWhere($alias . '.end_time > ?', date('Y-m-d H:i:s', time()));
-        ->andWhere($alias . '.end_time IS NULL');
+        ->andWhere($alias . '.end_time IS NULL')
+        ->andWhere($alias . '.start_time <= ?', date('Y-m-d H:i:s', time()));
 
       if($q->count() > 1) {
         throw new Exception('There is more than 1 active auction!');

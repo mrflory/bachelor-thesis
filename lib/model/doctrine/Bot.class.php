@@ -20,7 +20,6 @@ class Bot extends BaseBot
     $this->active = false;
     if($this->relatedExists('Bidder')) {
       $this->Bidder->bot_active = false;
-      #$this->Bidder->save();
     }
     $this->save();
   }

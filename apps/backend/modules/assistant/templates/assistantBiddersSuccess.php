@@ -38,4 +38,4 @@
 </div>
 </form>
 
-<?php echo javascript_include_tag('assistant'); ?>
+<?php use_javascript('assistant.js') ?>

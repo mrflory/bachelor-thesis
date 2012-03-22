@@ -60,6 +60,14 @@ abstract class BaseSession extends sfDoctrineRecord
              'type' => 'string',
              'length' => 4000,
              ));
+
+
+        $this->index('active', array(
+             'fields' => 
+             array(
+              0 => 'active',
+             ),
+             ));
     }
 
     public function setUp()

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="DE" target-language="de" datatype="plaintext" original="messages" date="2012-02-19T22:00:10Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="9">
+        <source>Anleitung.Text</source>
+        <target>
+            <![CDATA[
+            Sie sind Teilnehmer einer Pay-per-Bid Auktion, d.h. Sie zahlen eine Gebühr für jedes abgegebene Gebot und mit jedem Gebot erhöht sich der Auktionspreis
+            und der Countdown. Wenn der Countdown bei 0 ankommt, hat der letzte Bieter das Produkt gewonnen und muss den finalen Auktionspreis zahlen.<br />
+            Der Wert des Produkts und die Kosten für ein Gebot sind unten angegeben. Je nach Auktionseinstellung sehen Sie außerdem die letzten 5 Gebote.<br />
+            In einigen Auktionen haben Sie die Möglichkeit, das Produkt sofort zu kaufen, wobei Sie einen Rabatt in Höhe der bisher abgegebenen Gebot erhalten. Falls Sie
+            bis zum Auktionsende mit dem Sofortkauf warten möchten, können Sie den Kauf auch nach Ablauf des Countdown tätigen.<br />
+            Des weiteren können Sie in manchen Auktionen ein Biet-Automat aktivieren. Dieser bietet ab einem Startpreis automatisch die von Ihnen angegebene Anzahl von Geboten
+            bis zu einem Höchstpreis. Bitte beachten Sie, dass der Biet-Automat vor Ablauf der letzten 4-5 Sekunden aktiviert werden muss, da ansonsten nicht garantiert werden kann,
+            dass der Biet-Automat noch ein Gebot abgibt. Während der Biet-Automat aktiv ist, können Sie außerdem nicht manuell bieten und ein vorzeitiges Deaktivieren ist ebenfalls nicht möglich.
+            ]]>
+        </target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

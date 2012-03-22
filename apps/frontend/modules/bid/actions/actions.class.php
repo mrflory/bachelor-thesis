@@ -19,6 +19,7 @@ class bidActions extends sfActions
   {
     $language = $request->getPreferredCulture(array('de', 'en'));
     $this->getUser()->setCulture($language);
+    #$this->getUser()->setCulture('de');
     
     $this->userip  = $this->getUser()->getUniqueIp();
     $this->session = Doctrine_Core::getTable('Session')->getActiveSession();

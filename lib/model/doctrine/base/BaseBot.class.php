@@ -102,11 +102,15 @@ abstract class BaseBot extends sfDoctrineRecord
              ));
 
 
-        $this->index('auct_bidd', array(
+        $this->index('active', array(
              'fields' => 
              array(
-              0 => 'auction_id',
-              1 => 'bidder_id',
+              0 => 'bidder_id',
+              1 => 'active',
+              2 => 'auction_id',
+              3 => 'numbids',
+              4 => 'end',
+              5 => 'start',
              ),
              ));
     }

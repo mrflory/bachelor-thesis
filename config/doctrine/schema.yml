@@ -3,7 +3,7 @@ Session:
     actAs: [Timestampable]
     columns:
         name:               { type: string(255), notnull: true }
-        # Währung in der Form "%01.2f Euro" für "2.50 Euro"
+        # Währung in der Form "%01.2f Euro" für "2.50 Euro", siehe sprinft
         currency:           { type: string(255) }
         # Session aktiv?
         active:             { type: boolean, notnull: true, default: false }
@@ -11,6 +11,9 @@ Session:
         comment:            { type: string(4000) }
         # Nachricht an alle Nutzer
         message:            { type: string(4000) }
+    indexes:
+        active:
+            fields: [active]
 
 Participant:
     actAs: [Timestampable]
@@ -28,6 +31,9 @@ Participant:
         earned_money:       { type: decimal(10), notnull: true, default: 0 }
     relations:
         Session:            { local: session_id, foreign: id, foreignAlias: Participants }
+    indexes:
+        free_lock:
+            fields: [session_id, ip]
 
 Auction:
     actAs: [Timestampable]
@@ -86,6 +92,11 @@ Auction:
     relations:
         Session:            { local: session_id, foreign: id, foreignAlias: Auctions }
         LastBidder:         { class: Bidder, local: bidder_id, foreign: id, foreignAlias: Auctionleader, foreignType: one }
+    indexes:
+        place_bid:
+            fields: [id, end_time, current_price]
+        active:
+            fields: [session_id, end_time, start_time]
 
 Bidder:
     actAs: [Timestampable]
@@ -142,8 +153,8 @@ Bot:
         Auction:        { local: auction_id, foreign: id, foreignAlias: Bots }
         Bidder:         { local: bidder_id, foreign: id, foreignAlias: Bots }
     indexes:
-        auct_bidd:
-            fields: [auction_id, bidder_id]
+        active:
+            fields: [bidder_id, active, auction_id, numbids, end, start]
 
 Bid:
     actAs: [Timestampable]

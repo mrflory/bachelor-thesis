@@ -5,5 +5,5 @@ cache/*
 log/*
 lib/vendor/*
 *~
-bachelor.sql.gz
+bachelor*.sql.gz
 web/uploads/products/*

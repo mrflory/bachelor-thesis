@@ -5,7 +5,7 @@
         <header>
             <h2>Notice</h2>
         </header>
-        <p>Action finished!</p>
+        <p>Auction finished!</p>
     </article>
 </section>
 
@@ -147,8 +147,8 @@
 
 <?php
 if($running) {
-  echo javascript_include_tag('base');
-  echo javascript_include_tag('monitor');
+    use_javascript('base.js');
+    use_javascript('monitor.js');
 }
 ?>
 

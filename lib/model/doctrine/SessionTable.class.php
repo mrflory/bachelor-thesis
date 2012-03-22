@@ -35,8 +35,8 @@ class SessionTable extends Doctrine_Table
    
       $alias = $q->getRootAlias();
    
-      $q->andWhere($alias . '.active = 1')
-        ->addOrderBy($alias . '.created_at DESC');
+      $q->andWhere($alias . '.active = 1');
+        #->addOrderBy($alias . '.created_at DESC');
 
       if($q->count() > 1) {
         throw new Exception('There is more than 1 active session!');

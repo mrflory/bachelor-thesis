@@ -221,6 +221,24 @@ abstract class BaseAuction extends sfDoctrineRecord
         $this->hasColumn('end_time', 'timestamp', null, array(
              'type' => 'timestamp',
              ));
+
+
+        $this->index('place_bid', array(
+             'fields' => 
+             array(
+              0 => 'id',
+              1 => 'end_time',
+              2 => 'current_price',
+             ),
+             ));
+        $this->index('active', array(
+             'fields' => 
+             array(
+              0 => 'session_id',
+              1 => 'end_time',
+              2 => 'start_time',
+             ),
+             ));
     }
 
     public function setUp()
