@@ -234,6 +234,14 @@
         <source>Typ</source>
         <target>Type</target>
       </trans-unit>
+      <trans-unit id="60">
+        <source>Kaufen</source>
+        <target>Buy</target>
+      </trans-unit>
+      <trans-unit id="61">
+        <source>Nicht kaufen</source>
+        <target>Don\'t buy</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

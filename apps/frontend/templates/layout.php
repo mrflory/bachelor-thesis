@@ -196,13 +196,15 @@
         window.AuctionTranslations = {
             thisiswinner: '<?php echo __('<strong>Sie!</strong>') ?>',
             nowinneryet:  '<?php echo __('<i>Noch keiner!</i>') ?>',
-            wait:       '<?php echo __('Derzeit ist keine Auktion aktiv.<br />Bitte warten.') ?>',
-            bought:     '<?php echo __('Produkt gekauft! - Bitte warten Sie auf die nächste Auktion.') ?>',
-            buyerror:   '<?php echo __('Kauf fehlgeschlagen! - Bitte wenden Sie sich an den Leiter.') ?>',
-            bid:        '<?php echo __('Gebot abgegeben!') ?>',
-            biderror:   '<?php echo __('Bieten fehlgeschlagen! - Eventuell wurden Sie zwischenzeitlich überboten.') ?>',
-            bot:        '<?php echo __('Biet-Automat aktiviert! - Sie können nun nicht mehr manuell bieten.') ?>',
-            boterror:   '<?php echo __('Aktivierung fehlgeschlagen! - Bitte überprüfen Sie Ihre Eingaben.') ?>',
+            wait:         '<?php echo __('Derzeit ist keine Auktion aktiv.<br />Bitte warten.') ?>',
+            bought:       '<?php echo __('Produkt gekauft! - Bitte warten Sie auf die nächste Auktion.') ?>',
+            buyerror:     '<?php echo __('Kauf fehlgeschlagen! - Bitte wenden Sie sich an den Leiter.') ?>',
+            bid:          '<?php echo __('Gebot abgegeben!') ?>',
+            biderror:     '<?php echo __('Bieten fehlgeschlagen! - Eventuell wurden Sie zwischenzeitlich überboten.') ?>',
+            bot:          '<?php echo __('Biet-Automat aktiviert! - Sie können nun nicht mehr manuell bieten.') ?>',
+            boterror:     '<?php echo __('Aktivierung fehlgeschlagen! - Bitte überprüfen Sie Ihre Eingaben.') ?>',
+            buttonbuy:    '<?php echo __('Kaufen') ?>',
+            buttonnobuy:  '<?php echo __('Nicht kaufen') ?>',
             auction_dialog: '#auction-dialog-templ'
         };
     </script>

@@ -7,10 +7,16 @@
     "use strict";
     
     var Monitor = {
+        
+        /**
+         * Initialize variables and run setup methods
+         */
         init: function( ) {
             var self = this;
             
+            //Local reference to base functions
             self.base       = window.BaseAuction;
+            
             self.update_url = $( "input[name='url_update']").val();
             self.auction_id = $( "input[name='auction_id']").val();
             
@@ -32,7 +38,7 @@
         },
         
         /**
-         * Show error message if Ajax Request failed
+         * Show simple error message if ajax request fails
          */
         setupAjaxErrors: function() {
             $(document).ajaxError(function(event, request, settings) {
@@ -41,8 +47,8 @@
         },
         
         /**
-         * Update auction information, this function is called by ajax request
-         * and gets all the data
+         * Update auction information, this function is makes an ajax requests
+         * and passes the received data to responsible functions
          */
         updateAuction: function( length ) {
             var self = this;
@@ -63,7 +69,7 @@
         },
         
         /**
-         * Execute ajax request
+         * Execute ajax request and return deferred object
          */
         fetch: function() {
             var self = this;
@@ -96,7 +102,7 @@
         },
         
         /**
-         * Setup form to send ajax request
+         * Setup form to send ajax request to execute all bots
          */
         setupBotForm: function() {
             var self = this;
@@ -119,5 +125,6 @@
         }
         
     };
+    //Invoke init method and save to global name space
     window.Monitor = Monitor.init();
 })( jQuery );

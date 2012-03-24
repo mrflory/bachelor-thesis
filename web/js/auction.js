@@ -7,22 +7,33 @@
     "use strict";
     
     var Auction = {
+        
+        /**
+         * Initialize variables and run setup methods
+         */
         init: function( ) {
             var self = this;
             
+            //Local reference to base functions
             self.base              = window.BaseAuction;
+            
             self.update_url        = "/bid/status";
             self.waiting_url       = "/bid/wait";
+            
             self.auction_id        = undefined;
-            self.buying_already_decided = false;
             self.error             = false;
             self.interface_enabled = true;
+            self.buying_already_decided = false;
             
+            //Translations are set up in frontend main layout
             self.lang_texts = window.AuctionTranslations;
             
             //Compile handlebars.js template for final dialog
-            self.lang_texts.auction_dialog = Handlebars.compile($(self.lang_texts.auction_dialog).html());
+            self.lang_texts.auction_dialog = Handlebars.compile(
+                $(self.lang_texts.auction_dialog).html()
+            );
             
+            //Cache various dom elements
             self.elements = {
                 curprice:          $( "#curprice" ),
                 input_curprice:    $( "input[name='curprice']" ),
@@ -45,6 +56,7 @@
             self.setupAjaxErrors();
             self.setupInstructions();
             
+            //Don't do anything on error (e.g. session full)'
             if($( ".error" ).length == 0) {
                 self.setupDialogs();
                 self.setupForms();
@@ -82,7 +94,7 @@
         },
         
         /**
-         * Setup dialogs
+         * Setup dialogs for messages, errors and the direct buy dialog
          */
         setupDialogs: function() {
             var self = this;
@@ -113,34 +125,40 @@
                 resizable: false,
                 width: 400,
                 open: function(event, ui) {$(".ui-dialog-titlebar-close", ui.dialog).hide();},
-                buttons: {
-                    "Kaufen": function() {
-                        self.performBuy( $( "#dialog_buyform") ).done(function( results ) {
-                            if(results.successful) {
-                                self.showStatus(self.lang_texts.bought);
-                            } else {
-                                self.showStatus(self.lang_texts.buyerror, {'error': true});
-                            }
-                        });
-                        self.buying_already_decided = true;
-                        $( this ).dialog( "close" );
-                        self.elements.infoload.show();
-                        self.elements.dialog_info.find( ".messagetext" ).html('');
-                        self.elements.dialog_info.dialog('open');
+                buttons: [
+                    {
+                        text: self.lang_texts.buttonbuy,
+                        click: function() {
+                            self.performBuy( $( "#dialog_buyform") ).done(function( results ) {
+                                if(results.successful) {
+                                    self.showStatus(self.lang_texts.bought);
+                                } else {
+                                    self.showStatus(self.lang_texts.buyerror, {'error': true});
+                                }
+                            });
+                            self.buying_already_decided = true;
+                            $( this ).dialog( "close" );
+                            self.elements.infoload.show();
+                            self.elements.dialog_info.find( ".messagetext" ).html('');
+                            self.elements.dialog_info.dialog('open');
+                        }
                     },
-                    "Nicht kaufen": function() {
-                        self.buying_already_decided = true;
-                        $( this ).dialog( "close" );
-                        self.elements.infoload.show();
-                        self.elements.dialog_info.find( ".messagetext" ).html('');
-                        self.elements.dialog_info.dialog('open');
+                    {
+                        text: self.lang_texts.buttonnobuy,
+                        click: function() {
+                            self.buying_already_decided = true;
+                            $( this ).dialog( "close" );
+                            self.elements.infoload.show();
+                            self.elements.dialog_info.find( ".messagetext" ).html('');
+                            self.elements.dialog_info.dialog('open');
+                        }
                     }
-                }
+                ]
             });
         },
         
         /**
-         * Setup forms
+         * Setup bid form, direct buy form and activate bot form
          */
         setupForms: function() {
             var self = this;
@@ -185,7 +203,9 @@
         },
         
         /**
-         * Send ajax request for direct buy
+         * Send ajax request for direct buy and return deferred object
+         * Parameter form may be direct buy form during auction or on direct
+         * buy dialog after auction has ended
          */
         performBuy: function( form ) {
             return $.ajax({
@@ -197,7 +217,7 @@
         },
         
         /**
-         * Send ajax request for bidding
+         * Send ajax request for bidding and return deferred object
          */
         performBid: function() {
             var self = this;
@@ -216,7 +236,7 @@
         },
         
         /**
-         * Send ajax request to activate bot
+         * Send ajax request to activate bot and return deferred object
          */
         performBot: function() {
             var self = this;
@@ -236,8 +256,8 @@
         },
         
         /**
-         * Activates interface, so enable all buttons and hide statusbar, e.g. if new
-         * auction starts
+         * Activates interface, so enable all buttons and hide statusbar, e.g.
+         * if new auction starts
          */
         enableInterface: function() {
             var self = this;
@@ -249,7 +269,8 @@
         },
         
         /**
-         * Deactives interface so nothing can be done, e.g. if direct buy has been done
+         * Deactives interface so nothing can be done, e.g. if direct buy has
+         * been done
          */
         disableInterface: function() {
             var self = this;
@@ -370,8 +391,13 @@
             }
         },
         
+        /**
+         * Update DOM Elements for auction by given data
+         */
         displayAuction: function( data ) {
             var self = this;
+            //Disable interface when bot active or direct buy occured or
+            //participant is currently auction leader, otherwise activate interface
             if(self.interface_enabled) {
                 if( (data.showdirectbuy && data.bidder_bought)
                     || (data.autobid && data.bot_active) ) {
@@ -388,6 +414,7 @@
                 }
             }
 
+            //Highlight price when it increases
             if(self.elements.curprice.text() != data.a_curprice) {
                 self.elements.curprice.effect('highlight', {}, 1000);
             }
@@ -427,8 +454,8 @@
         },
         
         /**
-         * Update auction information, this function is called by ajax request and gets
-         * all the data, start initial ajax request
+         * Update auction information, this function is makes an ajax requests
+         * and passes the received data to responsible functions
          */
         updateAuction: function( length ) {
             var self = this;
@@ -440,6 +467,8 @@
             setTimeout(function() {
                 self.fetch().done(function( results ) {
                     if(results.active) {
+                        //Formerly waitForAuction() method could be replaced by
+                        //following statement
                         if(self.auction_id != results.a_id) {
                             self.auction_id = results.a_id;
                             self.initAuctionInterface(results);
@@ -474,5 +503,6 @@
             });
         }
     };
+    //Invoke init method and save to global name space
     window.Auction = Auction.init();
 })( jQuery );

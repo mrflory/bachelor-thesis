@@ -7,6 +7,10 @@
     "use strict";
     
     var BaseAuction = {
+        
+        /**
+         * Initialize variables and run setup methods
+         */
         init: function( ) {
             var self = this;
             
@@ -38,7 +42,7 @@
         },
         
         /**
-         * Set new countdown
+         * Set new countdown (usually called by ajax request to sync countdown)
          */
         setCountdown: function( countdown ) {
             var self = this;
@@ -73,5 +77,6 @@
             }, length || 200);
         }
     };
+    //Invoke init method and save to global name space
     window.BaseAuction = BaseAuction.init();
 })( jQuery );
