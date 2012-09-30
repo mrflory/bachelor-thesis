@@ -38,6 +38,9 @@ For a more detailed intruction refer to the Symfony documentation: http://www.sy
 
 ## Using the software
 
-A brief introduction - only in German - for using the software is available in the appendix of my thesis (see link above). The frontend is currently also only available in German.
+A brief introduction - only in German - for using the software is available in the appendix of my thesis (see link above). The backend is only in English, the frontend is currently available in English and German.
 
-I'll try to translate the German parts of the software and provide an English guide as soon as possible.
+## License
+
+All code written by me is licensed under the CRAPL license for academic software. Please have a look at the `CRAPL-LICENSE.txt` file. More information available on http://matt.might.net/articles/crapl/.
+
